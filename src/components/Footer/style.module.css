@@ -1,0 +1,38 @@
+.footer {
+  width: 100%;
+  background-color: #020203;
+}
+
+.footerCardsContainer {
+  background: #f5f7ff;
+  padding: 2em 0;
+}
+
+.footerCardsContainer > div {
+  display: flex;
+  justify-content: center;
+}
+
+.footerLinksContainer {
+  color: #fff;
+  padding: 3em 1em 2em;
+}
+
+.footerLinks {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.copyrightContainer {
+  border-top: 1px solid #ffffff81;
+  padding: 1.2em 0;
+  display: flex;
+  justify-content: center;
+}
+
+.copyrightContainer p {
+  color: #fff;
+  font-size: .8em;
+}

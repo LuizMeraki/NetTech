@@ -1,0 +1,13 @@
+.form {
+  width: 100%;
+}
+
+.form input {
+  font-size: .9em;
+  width: 100%;
+  outline: none;
+  border: none;
+  padding: 14px 25px;
+  border-radius: 50px;
+  background-color: #f5f7ff;
+}

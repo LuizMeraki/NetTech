@@ -1,0 +1,11 @@
+.registerContainer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  gap: 60px;
+}
+
+.newCostumer ul {
+  margin-top: 15px;
+  list-style-position: inside;
+}

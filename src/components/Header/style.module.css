@@ -1,0 +1,22 @@
+.header {
+  width: 100%;
+  padding: 1em 1.8em;
+  border-bottom: 2px solid #ececec;
+}
+
+.headerArea {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3em;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.actions svg {
+  font-size: 1.3em;
+}

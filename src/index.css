@@ -1,5 +1,110 @@
 * {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* COLORS */
+:root {
+  --main-blue: #0156ff;
+  --dark-blue: #003fbe;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+main {
+  padding: 3.5em 1.5em 5em;
+}
+
+.max-width {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.page-title {
+  margin-bottom: 1.5em;
+}
+
+.page-title h1 {
+  font-weight: 500;
+}
+
+.gray-box {
+  width: 100%;
+  background-color: #f5f7ff;
+  padding: 3em 3.5em;
+}
+
+.gray-box h3 {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.gray-box p:first-of-type {
+  font-size: .9em;
+}
+
+/* FORM */
+
+.input-container {
+  width: 100%;
+  margin: 15px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container:first-of-type {
+  margin-top: 25px;
+}
+
+form label {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+form label span {
+  color: #d02828;
+}
+
+form input {
+  font-size: .9em;
+  border: 1px solid #b2b2b2;
+  padding: 8px 12px;
+  outline-width: 1px;
+  outline-color: var(--main-blue);
+}
+
+.form-actions {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-actions a {
+  font-size: .850em;
+  text-decoration: none;
+}
+
+.form-actions button {
+  margin-top: 1.5em;
+}
+
+.blue-fill {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 2em;
+  color: #fff;
+  background-color: var(--main-blue);
+}
+
+.blue-fill:active {
+  background-color: var(--dark-blue);
+}
+
+.blue-text {
+  color: var(--main-blue);
 }
