@@ -4,7 +4,7 @@ import styles from "./style.module.css";
 
 export const Register = () => {
   return (
-    <main>
+    <main className="container-padding">
       <div className="max-width">
         <div className="page-title">
           <h1>Register</h1>

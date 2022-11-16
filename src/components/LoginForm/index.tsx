@@ -38,7 +38,6 @@ export const LoginForm = () => {
       </div>
       <div className="form-actions">
         <Link className="blue-text" to="/register">don't have an account?</Link>
-        <Link className="blue-text" to="/">forgot your password?</Link>
         <button type="submit" className="blue-fill">Login</button>
       </div>
     </form>

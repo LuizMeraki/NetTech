@@ -1,0 +1,10 @@
+.cardsContainer {
+  background: #f5f7ff;
+  padding: 2em 0;
+}
+
+.cardsContainer>div {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}

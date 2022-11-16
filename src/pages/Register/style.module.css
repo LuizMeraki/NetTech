@@ -9,3 +9,13 @@
   margin-top: 15px;
   list-style-position: inside;
 }
+
+/* MEDIA QUERY */
+
+@media (max-width: 850px) {
+  .registerContainer {
+    max-width: 600px;
+    margin: 0 auto;
+    flex-direction: column;
+  }
+}

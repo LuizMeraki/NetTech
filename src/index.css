@@ -16,7 +16,12 @@
 }
 
 main {
-  padding: 3.5em 1.5em 5em;
+  padding: 3.5em 0 5em;
+}
+
+.container-padding {
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 .max-width {
@@ -107,4 +112,12 @@ form input {
 
 .blue-text {
   color: var(--main-blue);
+}
+
+/* MEDIA QUERY */
+
+@media (max-width: 450px) {
+  .gray-box {
+    padding: 2.5em 1em;
+  }
 }
