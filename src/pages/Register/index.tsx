@@ -1,3 +1,4 @@
+import { PageTitle } from "../../components/PageTitle";
 import { RegisterForm } from "../../components/RegisterForm";
 import styles from "./style.module.css";
 
@@ -6,9 +7,7 @@ export const Register = () => {
   return (
     <main className="container-padding">
       <div className="max-width">
-        <div className="page-title">
-          <h1>Register</h1>
-        </div>
+        <PageTitle title="Register" />
         <div className={styles.registerContainer}>
           <div className="gray-box">
             <h3>Register and start shopping</h3>

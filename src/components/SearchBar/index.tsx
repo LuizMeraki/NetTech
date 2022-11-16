@@ -1,6 +1,7 @@
 import { FormEvent, useState } from "react";
 import styles from "./style.module.css";
 
+
 export const SearchBar = () => {
 
   const [query, setQuery] = useState<string>("");
@@ -9,7 +10,6 @@ export const SearchBar = () => {
     e.preventDefault();
   }
 
-  console.log(query);
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>

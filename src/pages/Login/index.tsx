@@ -1,4 +1,5 @@
 import { LoginForm } from "../../components/LoginForm";
+import { PageTitle } from "../../components/PageTitle";
 import styles from "./style.module.css";
 
 
@@ -6,9 +7,7 @@ export const Login = () => {
   return (
     <main className="container-padding">
       <div className="max-width">
-        <div className="page-title">
-          <h1>Login</h1>
-        </div>
+        <PageTitle title="Login" />
         <div className={styles.loginContainer}>
           <div className="gray-box">
             <h3>Registered Users</h3>
