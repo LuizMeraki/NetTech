@@ -20,13 +20,10 @@ export const LoginForm = () => {
 
     const data: IFormData = {
       email,
-      password
+      password,
     }
 
     loginUser(data);
-
-    setEmail("");
-    setPassword("");
   }
 
 
@@ -49,9 +46,7 @@ export const LoginForm = () => {
         placeholder="xxxxxxxx"
         required={true}
       />
-      {error &&
-        <ErrorMessage message={error} />
-      }
+      {error && <ErrorMessage message={error} />}
       <div className="form-actions">
         <Link className="blue-text" to="/register">don't have an account?</Link>
         <FormButton text="Login" />

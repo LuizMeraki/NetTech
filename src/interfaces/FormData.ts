@@ -1,7 +1,6 @@
 export interface IFormData {
   username?: string;
   email: string;
-  createPassword?: string;
+  password: string;
   confirmPassword?: string;
-  password?: string;
 }

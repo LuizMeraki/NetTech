@@ -14,7 +14,7 @@ export const RegisterForm = () => {
 
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
-  const [createPassword, setCreatePassword] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -23,16 +23,10 @@ export const RegisterForm = () => {
     const data: IFormData = {
       username,
       email,
-      createPassword,
-      confirmPassword
+      password,
     }
 
-    registerUser(data);
-
-    setUsername("");
-    setEmail("");
-    setCreatePassword("");
-    setConfirmPassword("");
+    registerUser(data, confirmPassword);
   }
 
 
@@ -58,8 +52,8 @@ export const RegisterForm = () => {
       <Input
         label="Create password"
         type="password"
-        value={createPassword}
-        setState={setCreatePassword}
+        value={password}
+        setState={setPassword}
         placeholder="xxxxxxxx"
         required={true}
       />

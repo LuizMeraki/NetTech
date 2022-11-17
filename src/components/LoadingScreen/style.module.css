@@ -13,7 +13,7 @@
 
 .overlay img {
   width: 50px;
-  animation: spin 1s infinite;
+  animation: spin .8s infinite;
 }
 
 @keyframes spin {
