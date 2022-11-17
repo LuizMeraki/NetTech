@@ -1,6 +1,6 @@
 .header {
   width: 100%;
-  padding: 1em 1.8em;
+  padding: 1em 0;
   border-bottom: 2px solid #ececec;
 }
 
@@ -19,4 +19,21 @@
 
 .actions svg {
   font-size: 1.3em;
+}
+
+/* MEDIA QUERY */
+
+@media (max-width: 700px) {
+  .headerArea {
+    gap: 1.5em;
+  }
+}
+
+@media (max-width: 480px) {
+  .actions {
+    gap: 15px;
+  }
+  .headerArea {
+    gap: .9em;
+  }
 }

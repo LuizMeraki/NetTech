@@ -1,0 +1,8 @@
+.messageContainer {
+  margin: 10px 0;
+}
+
+.messageContainer p {
+  color: #ca3434;
+  font-weight: 500;
+}

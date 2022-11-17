@@ -1,45 +1,55 @@
 import { useState, FormEvent } from 'react';
 import { Link } from 'react-router-dom';
+import { useLogin } from '../../hooks/useLogin';
+import { IFormData } from '../../interfaces/FormData';
+import { ErrorMessage } from '../ErrorMessage';
+import { FormButton } from '../FormButton';
+import { Input } from '../Input';
+import { LoadingScreen } from '../LoadingScreen';
 
 
 export const LoginForm = () => {
+
+  const { loginUser, loading, error } = useLogin();
 
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    const data: IFormData = {
+      email,
+      password,
+    }
+
+    loginUser(data);
   }
 
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="input-container">
-        <label htmlFor="email">E-mail <span>*</span></label>
-        <input
-          type="text"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="example@gmail.com"
-          required
-        />
-      </div>
-      <div className="input-container">
-        <label htmlFor="password">Password <span>*</span></label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="########"
-          required
-        />
-      </div>
+      {loading && <LoadingScreen />}
+      <Input
+        label="E-mail"
+        type="text"
+        value={email}
+        setState={setEmail}
+        placeholder="example@provider.com"
+        required={true}
+      />
+      <Input
+        label="Password"
+        type="password"
+        value={password}
+        setState={setPassword}
+        placeholder="xxxxxxxx"
+        required={true}
+      />
+      {error && <ErrorMessage message={error} />}
       <div className="form-actions">
         <Link className="blue-text" to="/register">don't have an account?</Link>
-        <Link className="blue-text" to="/">forgot your password?</Link>
-        <button type="submit" className="blue-fill">Login</button>
+        <FormButton text="Login" />
       </div>
     </form>
   );

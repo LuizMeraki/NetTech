@@ -1,68 +1,74 @@
 import { Link } from "react-router-dom";
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent } from "react";
+import { useRegister } from "../../hooks/useRegister";
+import { ErrorMessage } from "../ErrorMessage/";
+import { IFormData } from '../../interfaces/FormData';
+import { Input } from "../Input";
+import { FormButton } from "../FormButton";
+import { LoadingScreen } from "../LoadingScreen";
 
 
 export const RegisterForm = () => {
 
+  const { registerUser, loading, error } = useRegister();
+
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
-  const [createPassword, setCreatePassword] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    const data: IFormData = {
+      username,
+      email,
+      password,
+    }
+
+    registerUser(data, confirmPassword);
   }
 
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="input-container">
-        <label htmlFor="username">Username <span>*</span></label>
-        <input
-          type="text"
-          id="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          placeholder="Your name"
-          required
-        />
-      </div>
-      <div className="input-container">
-        <label htmlFor="email">E-mail <span>*</span></label>
-        <input
-          type="text"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="example@gmail.com"
-          required
-        />
-      </div>
-      <div className="input-container">
-        <label htmlFor="create-password">Create Password <span>*</span></label>
-        <input
-          type="text"
-          id="create-password"
-          value={createPassword}
-          onChange={(e) => setCreatePassword(e.target.value)}
-          placeholder="########"
-          required
-        />
-      </div>
-      <div className="input-container">
-        <label htmlFor="confirm-password">Confirm Password <span>*</span></label>
-        <input
-          type="text"
-          id="confirm-password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          placeholder="########"
-          required
-        />
-      </div>
+      {loading && <LoadingScreen />}
+      <Input
+        label="Username"
+        type="text"
+        value={username}
+        setState={setUsername}
+        placeholder="Your name"
+        required={true}
+      />
+      <Input
+        label="E-mail"
+        type="email"
+        value={email}
+        setState={setEmail}
+        placeholder="example@provider.com"
+        required={true}
+      />
+      <Input
+        label="Create password"
+        type="password"
+        value={password}
+        setState={setPassword}
+        placeholder="xxxxxxxx"
+        required={true}
+      />
+      <Input
+        label="Confirm password"
+        type="password"
+        value={confirmPassword}
+        setState={setConfirmPassword}
+        placeholder="xxxxxxxx"
+        required={true}
+      />
+      {error && <ErrorMessage message={error} />}
       <div className="form-actions">
         <Link className="blue-text" to="/login">Already have an account?</Link>
-        <button type="submit" className="blue-fill">Create account</button>
+        <FormButton text="Create account" />
       </div>
     </form>
   );
