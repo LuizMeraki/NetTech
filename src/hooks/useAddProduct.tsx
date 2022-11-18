@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IProducts } from '../interfaces/Products';
+import { IData } from '../interfaces/Products';
 import { requestErrorMessages } from "../constants/requestErrorMessages";
 import axios from "axios";
 
@@ -12,7 +12,7 @@ export const useAddProduct = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  async function addProduct(data: IProducts) {
+  async function addProduct(data: IData) {
 
     setLoading(true);
     setError(null);

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { IProducts, IProductsData } from '../interfaces/Products';
+import { IProductsData } from '../interfaces/Products';
 import { requestErrorMessages } from "../constants/requestErrorMessages";
 import axios from "axios";
 

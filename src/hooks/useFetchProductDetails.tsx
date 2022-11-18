@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { requestErrorMessages } from "../constants/requestErrorMessages";
-import { IProductsData } from "../interfaces/Products";
+import { IProductData } from '../interfaces/Products';
 import axios from "axios";
 
 
@@ -9,7 +9,7 @@ const API = import.meta.env.VITE_API;
 
 export const useFetchProductDetails = () => {
 
-  const [productDetails, setProductDetails] = useState<IProductsData | null>(null);
+  const [productDetails, setProductDetails] = useState<IProductData | null>(null);
 
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);

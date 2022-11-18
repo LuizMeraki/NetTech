@@ -1,4 +1,4 @@
-export interface IProducts {
+export interface IData {
   productId?: number;
   productName: string;
   productPrice: number;
@@ -7,5 +7,9 @@ export interface IProducts {
 }
 
 export interface IProductsData {
-  data: IProducts[]
+  data: IData[];
+}
+
+export interface IProductData {
+  data: IData;
 }
