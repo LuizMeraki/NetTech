@@ -7,3 +7,7 @@
   border-radius: 2em;
   border: none;
 }
+
+.button:active {
+  background-color: var(--dark-blue);
+}

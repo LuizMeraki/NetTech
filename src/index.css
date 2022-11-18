@@ -17,11 +17,18 @@
 
 main {
   padding: 3.5em 0 5em;
+  min-height: 60vh;
+}
+
+.products-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .container-padding {
-  padding-left: 1em;
-  padding-right: 1em;
+  padding-left: 1.1em;
+  padding-right: 1.1em;
 }
 
 .max-width {
@@ -55,16 +62,14 @@ main {
 }
 
 .form-actions a {
+  color: var(--main-blue);
   font-size: .850em;
   text-decoration: none;
 }
 
-.blue-fill:active {
-  background-color: var(--dark-blue);
-}
-
-.blue-text {
-  color: var(--main-blue);
+button {
+  border: none;
+  cursor: pointer;
 }
 
 /* MEDIA QUERY */

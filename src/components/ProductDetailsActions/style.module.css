@@ -1,0 +1,45 @@
+.container {
+  width: 100%;
+  padding: 18px 20px;
+  background-color: #f5f7ff;
+  border-radius: 15px 15px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container p {
+  font-size: .9em;
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.actions button {
+  padding: 12px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart {
+  border: 1px solid var(--main-blue);
+}
+
+.cart svg {
+  color: var(--main-blue);
+}
+
+.favorite {
+  margin-right: 13px;
+  border: 1px solid #c42b2b;
+}
+
+.favorite svg {
+  color: #c42b2b;
+}

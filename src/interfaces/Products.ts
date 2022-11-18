@@ -1,0 +1,11 @@
+export interface IProducts {
+  productId?: number;
+  productName: string;
+  productPrice: number;
+  productImageUrl: string;
+  productDescription?: string;
+}
+
+export interface IProductsData {
+  data: IProducts[]
+}

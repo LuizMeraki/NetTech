@@ -67,7 +67,7 @@ export const RegisterForm = () => {
       />
       {error && <ErrorMessage message={error} />}
       <div className="form-actions">
-        <Link className="blue-text" to="/login">Already have an account?</Link>
+        <Link to="/login">Already have an account?</Link>
         <FormButton text="Create account" />
       </div>
     </form>
