@@ -1,9 +1,9 @@
-import { IProducts } from "../../interfaces/Products";
+import { IData } from "../../interfaces/Products";
 import { useNavigate } from "react-router-dom";
 import styles from "./style.module.css";
 
 
-export const ProductCard = ({ productId, productImageUrl, productName, productPrice }: IProducts) => {
+export const ProductCard = ({ productId, productImageUrl, productName, productPrice }: IData) => {
 
   const navigate = useNavigate();
 
