@@ -48,7 +48,7 @@ export const LoginForm = () => {
       />
       {error && <ErrorMessage message={error} />}
       <div className="form-actions">
-        <Link className="blue-text" to="/register">don't have an account?</Link>
+        <Link to="/register">don't have an account?</Link>
         <FormButton text="Login" />
       </div>
     </form>

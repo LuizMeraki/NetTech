@@ -1,17 +1,11 @@
 import { useState } from 'react';
 import { IFormData } from '../interfaces/FormData';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { requestErrorMessages } from '../constants/requestErrorMessages';
+import axios from 'axios';
 
 
 const API = import.meta.env.VITE_API;
-
-const requestErrors = {
-  emailNotRegistered: "E-mail not registered.",
-  incorrectPassword: "Incorrect password",
-  passwordLength: "Password must contain at least 8 characters.",
-  genericError: "An error occurred, check your credentials or try again later.",
-}
 
 
 export const useLogin = () => {
@@ -31,7 +25,7 @@ export const useLogin = () => {
     try {
 
       if (passwordLength) {
-        throw requestErrors.passwordLength;
+        throw requestErrorMessages.passwordLength;
       }
 
       await axios.post(`${API}/loginuser`, data);
@@ -40,20 +34,20 @@ export const useLogin = () => {
 
       setLoading(false);
 
-      if (error == requestErrors.passwordLength) {
+      if (error == requestErrorMessages.passwordLength) {
         setError(error)
         return;
 
-      } else if (error.response.data == requestErrors.emailNotRegistered) {
-        setError(requestErrors.emailNotRegistered);
+      } else if (error.response.data == requestErrorMessages.emailNotRegistered) {
+        setError(requestErrorMessages.emailNotRegistered);
         return;
 
-      } else if (error.response.data == requestErrors.incorrectPassword) {
-        setError(requestErrors.incorrectPassword)
+      } else if (error.response.data == requestErrorMessages.incorrectPassword) {
+        setError(requestErrorMessages.incorrectPassword)
         return;
 
       } else {
-        setError(requestErrors.genericError);
+        setError(requestErrorMessages.genericError);
         return;
       };
     }

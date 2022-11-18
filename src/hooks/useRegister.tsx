@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { IFormData } from '../interfaces/FormData';
+import { requestErrorMessages } from "../constants/requestErrorMessages";
 import axios from "axios";
 
 
@@ -25,9 +26,9 @@ export const useRegister = () => {
     try {
 
       if (arePasswordEquals) {
-        throw "Passwords must be the same.";
+        throw requestErrorMessages.differentPasswords;
       } else if (passwordLength) {
-        throw "Password must contain at least 8 characters.";
+        throw requestErrorMessages.passwordLength;
       }
 
       await axios.post(`${API}/createuser`, data);
@@ -36,17 +37,17 @@ export const useRegister = () => {
 
       setLoading(false);
 
-      if (error == "Passwords must be the same.") {
-        setError(error);
+      if (error == requestErrorMessages.differentPasswords) {
+        setError(error)
         return;
-      } else if (error == "Password must contain at least 8 characters.") {
-        setError(error);
+      } else if (error == requestErrorMessages.passwordLength) {
+        setError(error)
         return;
-      } else if (error.response.data == "Usuário já tem um cadastro") {
-        setError("E-mail already registered.")
+      } else if (error.response.data == requestErrorMessages.emailAlreadyRegistered) {
+        setError(requestErrorMessages.emailAlreadyRegistered)
         return;
       } else {
-        setError("An error occurred, check your credentials or try again later.");
+        setError(requestErrorMessages.genericError);
         return;
       };
     }

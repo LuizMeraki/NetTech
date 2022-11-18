@@ -7,6 +7,8 @@ import { Footer } from '../components/Footer/index';
 import { Register } from "../pages/Register";
 import { Login } from '../pages/Login/index';
 import { AddProduct } from '../pages/AddProduct/index';
+import { Home } from "../pages/Home";
+import { ProductDetails } from "../pages/ProductDetails";
 
 
 export const AppRoutes = () => {
@@ -17,6 +19,8 @@ export const AppRoutes = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/add-product" element={<AddProduct />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/product-details/:productId" element={<ProductDetails />} />
       </Routes>
       <UserBenefitsSection />
       <Footer />
