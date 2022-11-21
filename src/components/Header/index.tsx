@@ -17,7 +17,9 @@ export const Header = () => {
         </Link>
         <SearchBar />
         <div className={styles.actions}>
-          <AiOutlineHeart />
+          <Link to="/register">
+            <AiOutlineHeart />
+          </Link>
           <HiOutlineShoppingCart />
         </div>
       </div>

@@ -27,10 +27,9 @@ export const ProductDetails = () => {
           <ProductDetailsActions />
           <div className={`${styles.container} max-width`}>
             <div className={styles.productDetailsContainer}>
-              <div className={styles.productDescriptionContainer}>
-                <h3>{productDetails?.data.productName}</h3>
-                <p>{productDetails?.data.productDescription}</p>
-              </div>
+              <h3>{productDetails?.data.productName}</h3>
+              <p className={styles.price}>{productDetails?.data.productPrice}</p>
+              <p>{productDetails?.data.productDescription}</p>
             </div>
             <div className={styles.productImageContainer}>
               <img src={productDetails?.data.productImageUrl} alt={productDetails?.data.productName} />
