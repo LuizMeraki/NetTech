@@ -67,6 +67,12 @@ main {
   text-decoration: none;
 }
 
+.input-with-label {
+  margin: 13px 0 10px;
+  display: flex;
+  flex-direction: column;
+}
+
 button {
   border: none;
   cursor: pointer;

@@ -32,6 +32,8 @@ export const LoginForm = () => {
       {loading && <LoadingScreen />}
       <Input
         label="E-mail"
+        htmlFor="email"
+        className="input-with-label"
         type="text"
         value={email}
         setState={setEmail}
@@ -40,6 +42,8 @@ export const LoginForm = () => {
       />
       <Input
         label="Password"
+        htmlFor="password"
+        className="input-with-label"
         type="password"
         value={password}
         setState={setPassword}

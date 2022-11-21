@@ -35,6 +35,8 @@ export const RegisterForm = () => {
       {loading && <LoadingScreen />}
       <Input
         label="Username"
+        htmlFor="username"
+        className="input-with-label"
         type="text"
         value={username}
         setState={setUsername}
@@ -43,6 +45,8 @@ export const RegisterForm = () => {
       />
       <Input
         label="E-mail"
+        htmlFor="email"
+        className="input-with-label"
         type="email"
         value={email}
         setState={setEmail}
@@ -51,6 +55,8 @@ export const RegisterForm = () => {
       />
       <Input
         label="Create password"
+        htmlFor="create-password"
+        className="input-with-label"
         type="password"
         value={password}
         setState={setPassword}
@@ -59,6 +65,8 @@ export const RegisterForm = () => {
       />
       <Input
         label="Confirm password"
+        htmlFor="confirm-password"
+        className="input-with-label"
         type="password"
         value={confirmPassword}
         setState={setConfirmPassword}

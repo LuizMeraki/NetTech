@@ -1,17 +1,12 @@
 import { IData } from "../../interfaces/Products";
 import { useNavigate } from "react-router-dom";
+import { moneyFormatter } from "../../utils/moneyFormatter";
 import styles from "./style.module.css";
 
 
 export const ProductCard = ({ productId, productImageUrl, productName, productPrice }: IData) => {
 
   const navigate = useNavigate();
-
-  function formatPrice(price: number): string {
-    const formatedPrice = price.toLocaleString("en-US", { style: "currency", currency: "USD" });
-
-    return formatedPrice
-  }
 
   function handleCard() {
     navigate(`/product-details/${productId}`);
@@ -27,7 +22,7 @@ export const ProductCard = ({ productId, productImageUrl, productName, productPr
         <p>{productName}</p>
       </div>
       <div className={styles.priceContainer}>
-        <span>{formatPrice(productPrice)}</span>
+        <span>{moneyFormatter(productPrice)}</span>
       </div>
     </div>
   );

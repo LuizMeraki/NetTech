@@ -43,6 +43,8 @@ export const AddProductForm = () => {
       {loading && <LoadingScreen />}
       <Input
         label="Product name"
+        htmlFor="product-name"
+        className="input-with-label"
         type="text"
         value={productName}
         setState={setProductName}
@@ -51,6 +53,8 @@ export const AddProductForm = () => {
       />
       <Input
         label="Price"
+        htmlFor="product-price"
+        className="input-with-label"
         type="number"
         value={productPrice}
         setState={setProductPrice}
@@ -59,6 +63,8 @@ export const AddProductForm = () => {
       />
       <Input
         label="Image URL"
+        htmlFor="product-image-url"
+        className="input-with-label"
         type="text"
         value={productImageUrl}
         setState={setProductImageUrl}
@@ -67,6 +73,8 @@ export const AddProductForm = () => {
       />
       <Input
         label="Description"
+        htmlFor="product-description"
+        className="input-with-label"
         type="text"
         value={productDescription}
         setState={setProductDescription}

@@ -9,6 +9,7 @@ import { Login } from '../pages/Login/index';
 import { AddProduct } from '../pages/AddProduct/index';
 import { Home } from "../pages/Home";
 import { ProductDetails } from "../pages/ProductDetails";
+import { Search } from "../pages/Search";
 
 
 export const AppRoutes = () => {
@@ -21,6 +22,7 @@ export const AppRoutes = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/add-product" element={<AddProduct />} />
         <Route path="/product-details/:productId" element={<ProductDetails />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
       <UserBenefitsSection />
       <Footer />

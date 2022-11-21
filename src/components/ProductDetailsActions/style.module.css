@@ -1,8 +1,5 @@
 .container {
   width: 100%;
-  padding: 18px 20px;
-  background-color: #f5f7ff;
-  border-radius: 15px 15px 0 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
