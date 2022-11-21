@@ -7,14 +7,19 @@
   justify-content: space-between;
 }
 
-.productDescriptionContainer {
+.productDetailsContainer {
   max-width: 400px;
 }
 
-.productDescriptionContainer h3 {
+.productDetailsContainer h3 {
   font-size: 1.3em;
   font-weight: 500;
-  margin-bottom: 2.2em;
+}
+
+.price {
+  font-size: 1.3em;
+  margin: 2em 0;
+  font-weight: 500;
 }
 
 .productImageContainer {
@@ -29,7 +34,7 @@
 
 /* MEDIA QUERY */
 
-@media (max-width: 920px){
+@media (max-width: 920px) {
 
   .container {
     flex-direction: column-reverse;

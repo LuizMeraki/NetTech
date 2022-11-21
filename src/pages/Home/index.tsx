@@ -3,6 +3,7 @@ import { PageTitle } from '../../components/PageTitle/index';
 import { ProductCard } from '../../components/ProductCard';
 import { Loading } from '../../components/Loding';
 import styles from "./style.module.css";
+import { Link } from 'react-router-dom';
 
 
 export const Home = () => {
