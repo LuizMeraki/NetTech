@@ -1,11 +1,11 @@
-.mainContainer {
+.container {
   padding: 1.5em 20px 3em;
   background-color: #f5f7ff;
   border-radius: 15px;
 }
 
-.container {
-  padding: 3em 0 3.5em;
+.flexContainer {
+  padding: 3em 0 5em;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -36,53 +36,29 @@
   height: 100%;
 }
 
-.commentsContainer h2 {
+.commentsSection h2 {
   font-weight: 500;
   font-size: 1.3em;
-  margin-bottom: .5em;
 }
 
-.commentsContainer form {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.commentsContainer form textarea {
-  width: 100%;
+.commentsContainer {
   max-width: 400px;
-  height: 50px;
-  padding: 10px;
-  border: 1px solid #dddddd;
-  outline-color: var(--main-blue);
-  border-radius: 10px;
-  background-color: #fafbff;
-  resize: none;
+  max-height: 300px;
+  padding: 0 1em 1em 0;
+  margin: 18px 0 5px;
+  overflow-y: auto;
 }
 
-.commentsContainer form button {
-  width: 50px;
-  height: 50px;
-  background-color: var(--main-blue);
-  border-radius: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.commentsContainer form button:active {
-  background-color: var(--dark-blue);
-} 
-
-.commentsContainer form button svg {
-  color: #fff;
+.noReviewsMessage {
+  font-size: .9em;
+  font-style: italic;
 }
 
 /* MEDIA QUERY */
 
 @media (max-width: 920px) {
 
-  .container {
+  .flexContainer {
     flex-direction: column-reverse;
     align-items: flex-start;
   }

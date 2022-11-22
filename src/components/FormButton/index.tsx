@@ -1,14 +1,15 @@
+import { ButtonHTMLAttributes } from "react";
 import styles from "./style.module.css";
 
 
-interface Props {
-  text: string;
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children: string | JSX.Element;
 }
 
-export const FormButton = ({ text }: Props) => {
+export const FormButton = ({ children, ...rest }: Props) => {
   return (
-    <button type="submit" className={styles.button}>
-      {text}
+    <button {...rest} className={styles.button}>
+      {children}
     </button>
   );
 }

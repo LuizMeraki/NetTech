@@ -1,24 +1,17 @@
+import { useEffect } from 'react';
+import { handleScroll } from '../../utils/handleScroll';
+
 import Logo from "../../assets/logo.svg";
 import stlyes from "./style.module.css";
-import { useEffect } from 'react';
 
 
 export const LoadingScreen = () => {
 
-  function blockScroll() {
-    document.body.style.overflow = "hidden";
-  }
-
-  function unlockScroll() {
-    document.body.style.overflow = "auto"
-  }
-
   useEffect(() => {
 
-    window.scrollTo(0, 0);
-    blockScroll();
+    handleScroll(true);
+    return () => handleScroll(false);
 
-    return () => unlockScroll();
   }, []);
 
 

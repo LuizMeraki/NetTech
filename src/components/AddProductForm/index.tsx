@@ -6,6 +6,7 @@ import { LoadingScreen } from "../LoadingScreen";
 import { ErrorMessage } from "../ErrorMessage";
 import { FormButton } from "../FormButton";
 import { Link } from "react-router-dom";
+import { Label } from "../Label";
 
 
 export const AddProductForm = () => {
@@ -41,49 +42,45 @@ export const AddProductForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       {loading && <LoadingScreen />}
-      <Input
-        label="Product name"
-        htmlFor="product-name"
-        className="input-with-label"
-        type="text"
-        value={productName}
-        setState={setProductName}
-        placeholder="Your product name"
-        required={true}
-      />
-      <Input
-        label="Price"
-        htmlFor="product-price"
-        className="input-with-label"
-        type="number"
-        value={productPrice}
-        setState={setProductPrice}
-        placeholder="Product price"
-        required={true}
-      />
-      <Input
-        label="Image URL"
-        htmlFor="product-image-url"
-        className="input-with-label"
-        type="text"
-        value={productImageUrl}
-        setState={setProductImageUrl}
-        placeholder="Your product image"
-        required={true}
-      />
-      <Input
-        label="Description"
-        htmlFor="product-description"
-        className="input-with-label"
-        type="text"
-        value={productDescription}
-        setState={setProductDescription}
-        placeholder="Describe about your product"
-        required={true}
-      />
+      <Label label="Product name">
+        <Input
+          type="text"
+          value={productName}
+          setState={setProductName}
+          placeholder="Your product name"
+          required={true}
+        />
+      </Label>
+      <Label label="Price">
+        <Input
+          type="number"
+          value={productPrice}
+          setState={setProductPrice}
+          placeholder="Product price"
+          required={true}
+        />
+      </Label>
+      <Label label="Product image URL">
+        <Input
+          type="text"
+          value={productImageUrl}
+          setState={setProductImageUrl}
+          placeholder="Your product image"
+          required={true}
+        />
+      </Label>
+      <Label label="Description">
+        <Input
+          type="text"
+          value={productDescription}
+          setState={setProductDescription}
+          placeholder="Describe about your product"
+          required={true}
+        />
+      </Label>
       <div className="form-actions">
         <Link to="/">Go home</Link>
-        <FormButton text="Enviar" />
+        <FormButton>Add product</FormButton>
       </div>
       {error && <ErrorMessage message={error} />}
     </form>

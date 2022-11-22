@@ -6,6 +6,7 @@ import { IFormData } from '../../interfaces/FormData';
 import { Input } from "../Input";
 import { FormButton } from "../FormButton";
 import { LoadingScreen } from "../LoadingScreen";
+import { Label } from "../Label";
 
 
 export const RegisterForm = () => {
@@ -33,50 +34,46 @@ export const RegisterForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       {loading && <LoadingScreen />}
-      <Input
-        label="Username"
-        htmlFor="username"
-        className="input-with-label"
-        type="text"
-        value={username}
-        setState={setUsername}
-        placeholder="Your name"
-        required={true}
-      />
-      <Input
-        label="E-mail"
-        htmlFor="email"
-        className="input-with-label"
-        type="email"
-        value={email}
-        setState={setEmail}
-        placeholder="example@provider.com"
-        required={true}
-      />
-      <Input
-        label="Create password"
-        htmlFor="create-password"
-        className="input-with-label"
-        type="password"
-        value={password}
-        setState={setPassword}
-        placeholder="xxxxxxxx"
-        required={true}
-      />
-      <Input
-        label="Confirm password"
-        htmlFor="confirm-password"
-        className="input-with-label"
-        type="password"
-        value={confirmPassword}
-        setState={setConfirmPassword}
-        placeholder="xxxxxxxx"
-        required={true}
-      />
+      <Label label="Name">
+        <Input
+          type="text"
+          value={username}
+          setState={setUsername}
+          placeholder="Your name"
+          required={true}
+        />
+      </Label>
+      <Label label="E-mail">
+        <Input
+          type="email"
+          value={email}
+          setState={setEmail}
+          placeholder="example@provider.com"
+          required={true}
+        />
+      </Label>
+      <Label label="Create password">
+        <Input
+          type="password"
+          value={password}
+          setState={setPassword}
+          placeholder="xxxxxxxx"
+          required={true}
+        />
+      </Label>
+      <Label label="Confirm password">
+        <Input
+          type="password"
+          value={confirmPassword}
+          setState={setConfirmPassword}
+          placeholder="xxxxxxxx"
+          required={true}
+        />
+      </Label>
       {error && <ErrorMessage message={error} />}
       <div className="form-actions">
         <Link to="/login">Already have an account?</Link>
-        <FormButton text="Create account" />
+        <FormButton>Create account</FormButton>
       </div>
     </form>
   );
