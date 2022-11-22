@@ -1,6 +1,6 @@
 import { AddProductForm } from '../../components/AddProductForm/index';
-import styles from "./style.module.css";
 import { PageTitle } from '../../components/PageTitle/index';
+import styles from "./style.module.css";
 
 
 export const AddProduct = () => {
@@ -8,10 +8,8 @@ export const AddProduct = () => {
     <main className="container-padding">
       <div className="max-width">
         <PageTitle title="Add product" />
-        <div className={styles.container}>
-          <div className="gray-box">
-            <AddProductForm />
-          </div>
+        <div className={`${styles.container} gray-box`}>
+          <AddProductForm />
         </div>
       </div>
     </main>

@@ -5,6 +5,7 @@ import { IFormData } from '../../interfaces/FormData';
 import { ErrorMessage } from '../ErrorMessage';
 import { FormButton } from '../FormButton';
 import { Input } from '../Input';
+import { Label } from '../Label';
 import { LoadingScreen } from '../LoadingScreen';
 
 
@@ -30,26 +31,28 @@ export const LoginForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       {loading && <LoadingScreen />}
-      <Input
-        label="E-mail"
-        type="text"
-        value={email}
-        setState={setEmail}
-        placeholder="example@provider.com"
-        required={true}
-      />
-      <Input
-        label="Password"
-        type="password"
-        value={password}
-        setState={setPassword}
-        placeholder="xxxxxxxx"
-        required={true}
-      />
+      <Label label="E-mail">
+        <Input
+          type="text"
+          value={email}
+          setState={setEmail}
+          placeholder="example@provider.com"
+          required={true}
+        />
+      </Label>
+      <Label label="Password">
+        <Input
+          type="password"
+          value={password}
+          setState={setPassword}
+          placeholder="xxxxxxxx"
+          required={true}
+        />
+      </Label>
       {error && <ErrorMessage message={error} />}
       <div className="form-actions">
         <Link to="/register">don't have an account?</Link>
-        <FormButton text="Login" />
+        <FormButton>Login</FormButton>
       </div>
     </form>
   );

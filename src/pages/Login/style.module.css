@@ -1,9 +1,12 @@
-.loginContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.container {
+  width: 100%;
 }
 
-.loginContainer div {
+.loginContainer {
   max-width: 600px;
+  margin: 0 auto;
+}
+
+.titleContainer {
+  margin-bottom: 25px;
 }

@@ -5,8 +5,11 @@
   gap: 60px;
 }
 
+.titleContainer {
+  margin-bottom: 25px;
+}
+
 .newCostumer ul {
-  margin-top: 15px;
   list-style-position: inside;
 }
 

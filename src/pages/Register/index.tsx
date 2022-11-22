@@ -10,13 +10,17 @@ export const Register = () => {
         <PageTitle title="Register" />
         <div className={styles.registerContainer}>
           <div className="gray-box">
-            <h3>Register and start shopping</h3>
-            <p>if you haven't an account, create it now!</p>
+            <div className={styles.titleContainer}>
+              <h3>Register and start shopping</h3>
+              <p>if you haven't an account, create it now!</p>
+            </div>
             <RegisterForm />
           </div>
           <div className={`gray-box ${styles.newCostumer}`}>
-            <h3>New Costumer?</h3>
-            <p>Creating an account has many benefits:</p>
+            <div className={styles.titleContainer}>
+              <h3>New Costumer?</h3>
+              <p>Creating an account has many benefits:</p>
+            </div>
             <ul>
               <li>Check out faster</li>
               <li>Keep more than one address</li>

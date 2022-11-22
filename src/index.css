@@ -9,6 +9,21 @@
 :root {
   --main-blue: #0156ff;
   --dark-blue: #003fbe;
+
+  --toastify-color-progress-light: var(--main-blue);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #e6e6e6;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-blue);
+  border-radius: 10px;
 }
 
 #root {
@@ -57,6 +72,7 @@ main {
 /* FORM */
 
 .form-actions {
+  margin-top: 12px;
   display: flex;
   flex-direction: column;
 }
