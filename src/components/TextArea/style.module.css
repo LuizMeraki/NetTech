@@ -1,17 +1,8 @@
-label {
-  font-weight: 500;
-  margin-bottom: 5px;
-}
-
-.redAsteristic {
-  color: #d02828;
-  margin-left: 3px;
-}
-
 .textarea {
   font-size: .9em;
   border: 1px solid #b2b2b2;
   padding: 8px 12px;
   outline-width: 1px;
   outline-color: var(--main-blue);
+  white-space: pre;
 }

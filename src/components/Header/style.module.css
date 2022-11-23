@@ -11,6 +11,10 @@
   gap: 3em;
 }
 
+.logo {
+  width: clamp(23px, 6vw, 30px);
+}
+
 .actions {
   display: flex;
   align-items: center;

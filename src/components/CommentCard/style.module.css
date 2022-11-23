@@ -7,7 +7,7 @@
 }
 
 .titleContainer {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .titleContainer h3 {
@@ -17,6 +17,7 @@
 
 .contentContainer {
   word-wrap: break-word;
+  white-space: pre-wrap;
 }
 
 .contentContainer p {

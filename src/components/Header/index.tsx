@@ -13,7 +13,7 @@ export const Header = () => {
     <header className={`${styles.header} container-padding`}>
       <div className={`${styles.headerArea} max-width`}>
         <Link to="/">
-          <img src={Logo} alt="Logo" />
+          <img className={styles.logo} src={Logo} alt="Logo" />
         </Link>
         <SearchBar />
         <div className={styles.actions}>
