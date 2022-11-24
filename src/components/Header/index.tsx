@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { SearchBar } from "../SearchBar";
 
-import { AiOutlineHeart } from "react-icons/ai";
+import { AiOutlineHeart, AiOutlineUserAdd } from "react-icons/ai";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 
 import Logo from "../../assets/logo.svg";
@@ -17,10 +17,15 @@ export const Header = () => {
         </Link>
         <SearchBar />
         <div className={styles.actions}>
-          <Link to="/register">
+          <Link to="/favorites">
             <AiOutlineHeart />
           </Link>
-          <HiOutlineShoppingCart />
+          <Link to="/cart">
+            <HiOutlineShoppingCart />
+          </Link>
+          <Link to="/register">
+            <AiOutlineUserAdd />
+          </Link>
         </div>
       </div>
     </header>

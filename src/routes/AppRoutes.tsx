@@ -10,6 +10,8 @@ import { AddProduct } from '../pages/AddProduct/index';
 import { Home } from "../pages/Home";
 import { ProductDetails } from "../pages/ProductDetails";
 import { Search } from "../pages/Search";
+import { FavoriteProducts } from "../pages/FavoriteProducts";
+import { CartPage } from '../pages/CartPage/index';
 
 
 export const AppRoutes = () => {
@@ -23,6 +25,8 @@ export const AppRoutes = () => {
         <Route path="/add-product" element={<AddProduct />} />
         <Route path="/product-details/:productId" element={<ProductDetails />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/favorites" element={<FavoriteProducts />} />
+        <Route path="/cart" element={<CartPage />} />
       </Routes>
       <UserBenefitsSection />
       <Footer />
