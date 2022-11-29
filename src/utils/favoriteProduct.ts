@@ -12,5 +12,5 @@ export function favoriteProduct(userID: string, productID: string | undefined) {
     }
   };
 
-  axios.post(`${API}/`, {});
+  axios.post(`${API}/addproducttofavoritelist/${userID}/${productID}`, {});
 }

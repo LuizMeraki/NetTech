@@ -23,13 +23,11 @@ export const ProductDetailsActions = ({ userID, productID }: Props) => {
   const [isProductAlreadyInCart, setIsProductAlreadyInCart] = useState<boolean>(false);
 
   function handleFavoriteActions() {
-
     favoriteProduct(userID, productID);
     setIsProductAlreadyFavorited((prevState) => !prevState);
   }
 
   function handleCartActions() {
-
     setIsProductAlreadyInCart((prevState) => !prevState);
   }
 
