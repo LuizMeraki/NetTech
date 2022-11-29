@@ -11,6 +11,10 @@
   gap: 3em;
 }
 
+.logo {
+  width: clamp(23px, 6vw, 30px);
+}
+
 .actions {
   display: flex;
   align-items: center;
@@ -18,7 +22,13 @@
 }
 
 .actions svg {
+  color: #000;
   font-size: 1.3em;
+}
+
+.actions a {
+  width: 21px;
+  height: 21px;
 }
 
 /* MEDIA QUERY */

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { SearchBar } from "../SearchBar";
 
-import { AiOutlineHeart } from "react-icons/ai";
+import { AiOutlineHeart, AiOutlineUserAdd } from "react-icons/ai";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 
 import Logo from "../../assets/logo.svg";
@@ -13,14 +13,19 @@ export const Header = () => {
     <header className={`${styles.header} container-padding`}>
       <div className={`${styles.headerArea} max-width`}>
         <Link to="/">
-          <img src={Logo} alt="Logo" />
+          <img className={styles.logo} src={Logo} alt="Logo" />
         </Link>
         <SearchBar />
         <div className={styles.actions}>
-          <Link to="/register">
+          <Link to="/favorites">
             <AiOutlineHeart />
           </Link>
-          <HiOutlineShoppingCart />
+          <Link to="/cart">
+            <HiOutlineShoppingCart />
+          </Link>
+          <Link to="/register">
+            <AiOutlineUserAdd />
+          </Link>
         </div>
       </div>
     </header>

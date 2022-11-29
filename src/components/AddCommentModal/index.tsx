@@ -56,7 +56,7 @@ export const AddCommentModal = ({ showModalState, productId }: Props) => {
 
 
   return (
-    <div className={styles.overlay}>
+    <div className={`${styles.overlay} container-padding`}>
       <div className={styles.container}>
         <div className={styles.closeModal} onClick={() => showModalState(false)}>
           <IoIosCloseCircle />

@@ -29,45 +29,48 @@ export const ProductDetails = () => {
   }, [productId]);
 
 
+  if (loading) {
+    return (
+      <main className="container-padding">
+        <Loading />
+      </main>
+    )
+  }
+
+
   return (
     <main className="container-padding">
-      {loading ? (
-        <Loading />
-      ) : (
-        <>
-          {showCommentModal && <AddCommentModal showModalState={setShowCommentModal} productId={productId} />}
-          <ToastContainer hideProgressBar={true} />
-          <div className={`${styles.container} max-width`}>
-            <ProductDetailsActions />
-            <section className={styles.flexContainer}>
-              <div className={styles.productDetailsContainer}>
-                <h3>{productDetails?.data.productName}</h3>
-                <p className={styles.price}>
-                  {moneyFormatter(productDetails?.data.productPrice)}
-                </p>
-                <p>{productDetails?.data.productDescription}</p>
-              </div>
-              <div className={styles.productImageContainer}>
-                <img src={productDetails?.data.productImageUrl} alt={productDetails?.data.productName} />
-              </div>
-            </section>
-            <section className={styles.commentsSection}>
-              <h2>Comentários</h2>
-              <div className={styles.commentsContainer}>
-                {comments?.data.length == 0 && (
-                  <p className={styles.noReviewsMessage}>This product has no reviews, be the first one!</p>
-                )}
-                {comments?.data.map((comment, index) => (
-                  <CommentCard key={index} title={comment.title} content={comment.content} />
-                ))}
-              </div>
-              <FormButton onClick={() => setShowCommentModal(true)}>
-                Add a comment
-              </FormButton>
-            </section>
+      {showCommentModal && <AddCommentModal showModalState={setShowCommentModal} productId={productId} />}
+      <ToastContainer hideProgressBar={true} />
+      <div className={`${styles.container} max-width`}>
+        <ProductDetailsActions userID="1" productID={productId} />
+        <section className={styles.flexContainer}>
+          <div className={styles.productDetailsContainer}>
+            <h3>{productDetails?.data.productName}</h3>
+            <p className={styles.price}>
+              {moneyFormatter(productDetails?.data.productPrice)}
+            </p>
+            <p>{productDetails?.data.productDescription}</p>
           </div>
-        </>
-      )}
+          <div className={styles.productImageContainer}>
+            <img src={productDetails?.data.productImageUrl} alt={productDetails?.data.productName} />
+          </div>
+        </section>
+        <section className={styles.commentsSection}>
+          <h2>Comentários</h2>
+          <div className={styles.commentsContainer}>
+            {comments?.data.length == 0 && (
+              <p className={styles.noReviewsMessage}>This product has no reviews, be the first one!</p>
+            )}
+            {comments?.data.map((comment, index) => (
+              <CommentCard key={index} title={comment.title} content={comment.content} />
+            ))}
+          </div>
+          <FormButton onClick={() => setShowCommentModal(true)}>
+            Add a comment
+          </FormButton>
+        </section>
+      </div>
     </main>
   );
 }
