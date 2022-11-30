@@ -7,6 +7,10 @@
   align-items: center;
 }
 
+.iconContainer img {
+  width: clamp(50px, 8vw, 60px);
+}
+
 .cardTitle {
   margin: 1em 0;
 }

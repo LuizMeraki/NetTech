@@ -1,10 +1,10 @@
-import { IData } from "../../interfaces/Products";
+import { productData } from "../../interfaces/Products";
 import { useNavigate } from "react-router-dom";
 import { moneyFormatter } from "../../utils/moneyFormatter";
 import styles from "./style.module.css";
 
 
-export const ProductCard = ({ productId, productImageUrl, productName, productPrice }: IData) => {
+export const ProductCard = ({ productId, productImageUrl, productName, productPrice }: productData) => {
 
   const navigate = useNavigate();
 

@@ -23,7 +23,7 @@ export const useSearchProducts = () => {
 
     try {
 
-      const request = await axios.get(`${API}/filterproductbyname/${formattedQuery}`);
+      const request = await axios.get(`${API}/product/filterproductbyname?productName=${formattedQuery}`);
 
       setProducts(request);
 

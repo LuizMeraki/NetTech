@@ -3,5 +3,6 @@
 }
 
 .container h1 {
+  font-size: clamp(1.350em, 6vw, 1.7em);
   font-weight: 500;
 }

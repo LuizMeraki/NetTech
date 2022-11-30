@@ -1,0 +1,54 @@
+.container {
+  width: 100%;
+  max-width: 550px;
+  margin: 20px auto;
+  padding: 1.5em;
+  border-radius: 15px;
+  background-color: #fff;
+  box-shadow: 0px 2px 6px #5858587a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.productImage {
+  width: clamp(50px, 20vw, 100px);
+}
+
+.productImage img {
+  width: 100%;
+}
+
+.productName {
+  width: clamp(90px, 30vw, 50%);
+  margin: 0 10px;
+  text-overflow: ellipsis;
+}
+
+.productName p {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.productActions button {
+  padding: 10px 5px;
+  margin: 0 3px;
+  background-color: transparent;
+}
+
+.productActions button svg {
+  font-size: 1.350em;
+}
+
+.productActions button:last-of-type svg {
+  color: #c42b2b;
+}
+
+/* MEDIA QUERY */
+
+@media (max-width: 400px) {
+  .container {
+    padding: 1.5em .5em;
+  }
+}

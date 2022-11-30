@@ -1,4 +1,4 @@
-import { createContext, Dispatch, SetStateAction, useState } from "react";
+import { createContext, Dispatch, SetStateAction, useEffect, useState } from "react";
 
 
 interface Props {
@@ -6,8 +6,8 @@ interface Props {
 }
 
 type AuthContextType = {
-  token: null | string,
-  setToken: Dispatch<SetStateAction<string | null>>,
+  token: null | string;
+  setToken: Dispatch<SetStateAction<null | string>>;
 }
 
 
@@ -15,7 +15,8 @@ export const AuthContext = createContext<AuthContextType>({} as AuthContextType)
 
 export const AuthContextProvider = ({ children }: Props) => {
 
-  const [token, setToken] = useState<string | null>(null);
+  const [token, setToken] = useState<null | string>("true");
+
 
   return (
     <AuthContext.Provider value={{ token, setToken }}>

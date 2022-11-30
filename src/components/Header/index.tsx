@@ -6,9 +6,14 @@ import { HiOutlineShoppingCart } from "react-icons/hi";
 
 import Logo from "../../assets/logo.svg";
 import styles from "./style.module.css";
+import { useAuthContext } from '../../hooks/useAuthContex';
 
 
 export const Header = () => {
+
+  const { token } = useAuthContext();
+
+
   return (
     <header className={`${styles.header} container-padding`}>
       <div className={`${styles.headerArea} max-width`}>
@@ -17,15 +22,22 @@ export const Header = () => {
         </Link>
         <SearchBar />
         <div className={styles.actions}>
-          <Link to="/favorites">
-            <AiOutlineHeart />
-          </Link>
-          <Link to="/cart">
-            <HiOutlineShoppingCart />
-          </Link>
-          <Link to="/register">
-            <AiOutlineUserAdd />
-          </Link>
+          {token ?
+            <>
+              <Link to="/favorites">
+                <AiOutlineHeart />
+              </Link>
+              <Link to="/cart">
+                <HiOutlineShoppingCart />
+              </Link>
+            </>
+            :
+            <>
+              <Link to="/register">
+                <AiOutlineUserAdd />
+              </Link>
+            </>
+          }
         </div>
       </div>
     </header>

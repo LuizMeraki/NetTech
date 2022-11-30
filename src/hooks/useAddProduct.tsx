@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IData } from '../interfaces/Products';
+import { productData } from '../interfaces/Products';
 import { requestErrorMessages } from "../constants/requestErrorMessages";
 import axios from "axios";
 
@@ -12,14 +12,14 @@ export const useAddProduct = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  async function addProduct(data: IData) {
+  async function addProduct(data: productData) {
 
     setLoading(true);
     setError(null);
 
     try {
 
-      await axios.post(`${API}/createproduct`, data);
+      await axios.post(`${API}/product/createproduct`, data);
 
     } catch (error) {
 

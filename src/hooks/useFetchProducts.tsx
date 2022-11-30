@@ -21,7 +21,7 @@ export const useFetchProducts = () => {
 
     try {
 
-      const fetch: any = await axios.get(`${API}/getallproducts`);
+      const fetch: any = await axios.get(`${API}/product/getallproducts`);
 
       setProducts(fetch);
 
