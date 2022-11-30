@@ -1,29 +1,27 @@
 import { useState } from "react";
 import { requestErrorMessages } from "../constants/requestErrorMessages";
-import { IProductData } from '../interfaces/Products';
+import { IUserData } from '../interfaces/UserData';
 import axios from "axios";
 
 
 const API = import.meta.env.VITE_API;
 
 
-export const useFetchProductDetails = () => {
+export const useFecthUserData = () => {
 
-  const [productDetails, setProductDetails] = useState<IProductData | null>(null);
-
+  const [userData, setUserData] = useState<IUserData | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  async function fetchProductDetails(id: string | undefined) {
+  async function fetchUserData(id: string) {
 
     setLoading(true);
-    setError(null);
 
     try {
 
-      const request = await axios.get(`${API}/product/getproductbyid?productId=${id}`);
+      const request: any = await axios.get(`${API}/user/getuserbyid?userId=${id}`);
 
-      setProductDetails(request);
+      setUserData(request);
 
     } catch (error) {
 
@@ -34,5 +32,5 @@ export const useFetchProductDetails = () => {
     setLoading(false);
   }
 
-  return ({ fetchProductDetails, productDetails, loading, error });
+  return ({ fetchUserData, userData, loading, error });
 }

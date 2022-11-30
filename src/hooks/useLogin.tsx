@@ -28,7 +28,7 @@ export const useLogin = () => {
         throw requestErrorMessages.passwordLength;
       }
 
-      await axios.post(`${API}/loginuser`, data);
+      await axios.post(`${API}/user/loginuser`, data);
 
     } catch (error: any) {
 

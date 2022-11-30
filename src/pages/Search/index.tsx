@@ -28,13 +28,20 @@ export const Search = () => {
 
   return (
     <main className="container-padding">
-      {loading && <Loading />}
       <div className="max-width">
         <PageTitle title="Search" />
-        {error && <ErrorMessage message={error} />}
+        {loading && <Loading />}
+        {error &&
+          <ErrorMessage
+            className="text-center"
+            message={error}
+          />
+        }
         {products?.data.length == 0 &&
-          <p className={styles.notFound}>Não foi possível encontrar o que você está buscando,
-            verifique suas informações e tente novamente.</p>
+          <ErrorMessage
+            className="text-center"
+            message="Não foi possível encontrar o que você está buscando, verifique suas informações e tente novamente."
+          />
         }
         <div className="products-container">
           {products?.data.map((product) => (

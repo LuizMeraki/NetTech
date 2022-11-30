@@ -21,7 +21,7 @@ export const useFetchComments = () => {
 
     try {
 
-      const request: any = await axios.get(`${API}/getallcomentsfromproduct/${productID}`);
+      const request: any = await axios.get(`${API}/post/getallpostfromproduct?productId=${productID}`);
 
       setComments(request)
 

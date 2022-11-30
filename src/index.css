@@ -75,6 +75,10 @@ main {
   font-size: .9em;
 }
 
+.text-center {
+  text-align: center;
+}
+
 /* FORM */
 
 .form-actions {

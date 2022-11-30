@@ -1,15 +1,15 @@
-export interface IData {
+export type productData = {
   productId?: number;
   productName: string;
-  productPrice: number;
-  productImageUrl: string;
+  productPrice?: number;
+  productImageUrl?: string;
   productDescription?: string;
 }
 
 export interface IProductsData {
-  data: IData[];
+  data: productData[];
 }
 
 export interface IProductData {
-  data: IData;
+  data: productData;
 }

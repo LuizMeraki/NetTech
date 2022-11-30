@@ -18,7 +18,7 @@ export const useAddComment = () => {
 
     try {
 
-      await axios.post(`${API}/createpost/${userID}/${productID}`, data);
+      await axios.post(`${API}/post/createpost?userId=${userID}&productId=${productID}`, data);
 
     } catch (error) {
 
