@@ -40,7 +40,7 @@ export const Search = () => {
         {products?.data.length == 0 &&
           <ErrorMessage
             className="text-center"
-            message="Não foi possível encontrar o que você está buscando, verifique suas informações e tente novamente."
+            message="Could not find what you are looking for."
           />
         }
         <div className="products-container">
