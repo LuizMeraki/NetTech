@@ -1,9 +1,23 @@
 import { LoginForm } from "../../components/LoginForm";
 import { PageTitle } from "../../components/PageTitle";
+import { useAuthContext } from '../../hooks/useAuthContex';
+import { useNavigate } from "react-router-dom";
+import { useEffect } from 'react';
 import styles from "./style.module.css";
 
 
 export const Login = () => {
+
+  const { token } = useAuthContext();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+
+    if (token) navigate("/");
+
+  }, [token]);
+
+
   return (
     <main className="container-padding">
       <div className="max-width">

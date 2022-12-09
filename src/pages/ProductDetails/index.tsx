@@ -18,7 +18,7 @@ export const ProductDetails = () => {
 
   const [showCommentModal, setShowCommentModal] = useState<boolean>(false);
 
-  const { fetchProductDetails, productDetails, loading, error } = useFetchProductDetails();
+  const { fetchProductDetails, productDetails, favoritedProducts, loading, error } = useFetchProductDetails();
   const { fetchComments, comments, commentLoading, commentError } = useFetchComments();
 
   useEffect(() => {
@@ -27,7 +27,6 @@ export const ProductDetails = () => {
     fetchComments(productId);
 
   }, [productId]);
-
 
   if (loading) {
     return (
@@ -43,7 +42,7 @@ export const ProductDetails = () => {
       {showCommentModal && <AddCommentModal showModalState={setShowCommentModal} productId={productId} />}
       <ToastContainer hideProgressBar={true} />
       <div className={`${styles.container} max-width`}>
-        <ProductDetailsActions userID="1" productID={productId} />
+        <ProductDetailsActions userID="1" productID={productId} favoritedProducts={favoritedProducts} />
         <section className={styles.flexContainer}>
           <div className={styles.productDetailsContainer}>
             <h3>{productDetails?.data.productName}</h3>

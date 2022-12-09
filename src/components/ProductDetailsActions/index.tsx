@@ -1,13 +1,15 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AiOutlineHeart } from "react-icons/ai";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { favoriteProduct } from "../../utils/favoriteProduct";
+import { productData } from '../../interfaces/Products';
 import styles from "./style.module.css";
 
 
 interface Props {
   userID: string;
   productID: string | undefined;
+  favoritedProducts: productData[] | null;
 }
 
 const productFavorited = `${styles.productFavorited}`;
@@ -17,7 +19,7 @@ const productInCart = `${styles.productInCart}`;
 const productNotInCart = `${styles.productNotInCart}`;
 
 
-export const ProductDetailsActions = ({ userID, productID }: Props) => {
+export const ProductDetailsActions = ({ userID, productID, favoritedProducts }: Props) => {
 
   const [isProductAlreadyFavorited, setIsProductAlreadyFavorited] = useState<boolean>(false);
   const [isProductAlreadyInCart, setIsProductAlreadyInCart] = useState<boolean>(false);
@@ -30,6 +32,15 @@ export const ProductDetailsActions = ({ userID, productID }: Props) => {
   function handleCartActions() {
     setIsProductAlreadyInCart((prevState) => !prevState);
   }
+
+  useEffect(() => {
+
+    favoritedProducts?.forEach((product) => {
+      product.productId?.toString() == productID &&
+        setIsProductAlreadyFavorited(true);
+    })
+
+  }, [favoritedProducts]);
 
 
   return (

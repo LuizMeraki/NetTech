@@ -2,13 +2,18 @@ import { Navigate, Outlet } from "react-router-dom";
 import { useAuthContext } from '../../hooks/useAuthContext';
 
 
-export const PrivateRoute = () => {
+interface Props {
+  redirectTo: string;
+}
+
+
+export const PrivateRoute = ({ redirectTo }: Props) => {
 
   const { token } = useAuthContext();
 
   return (
-    true ?
+    token ?
       <Outlet />
-      : <Navigate to="/login" />
+      : <Navigate to={redirectTo} />
   )
 }

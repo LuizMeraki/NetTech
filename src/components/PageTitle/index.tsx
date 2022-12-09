@@ -5,6 +5,7 @@ interface Props {
   title: string;
 }
 
+
 export const PageTitle = ({ title }: Props) => {
   return (
     <div className={styles.container}>

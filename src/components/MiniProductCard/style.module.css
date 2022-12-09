@@ -2,13 +2,26 @@
   width: 100%;
   max-width: 550px;
   margin: 20px auto;
-  padding: 1.5em;
+  padding: .850em;
   border-radius: 15px;
   background-color: #fff;
   box-shadow: 0px 2px 6px #5858587a;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+}
+
+.productPrice {
+  position: absolute;
+  top: 8px;
+  right: 24px;
+}
+
+.productPrice p {
+  font-size: .8em;
+  font-weight: 500;
+  color: var(--main-blue);
 }
 
 .productImage {
@@ -32,7 +45,7 @@
 }
 
 .productActions button {
-  padding: 10px 5px;
+  padding: 10px 3px;
   margin: 0 3px;
   background-color: transparent;
 }
@@ -43,12 +56,4 @@
 
 .productActions button:last-of-type svg {
   color: #c42b2b;
-}
-
-/* MEDIA QUERY */
-
-@media (max-width: 400px) {
-  .container {
-    padding: 1.5em .5em;
-  }
 }

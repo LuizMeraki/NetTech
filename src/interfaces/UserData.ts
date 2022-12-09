@@ -1,10 +1,10 @@
 import { productData } from './Products';
 
 
-type userData = {
+export type UserDataType = {
   favoriteProducts: productData[];
 }
 
 export interface IUserData {
-  data: userData;
+  data: UserDataType;
 }

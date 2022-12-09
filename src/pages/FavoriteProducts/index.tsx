@@ -17,8 +17,6 @@ export const FavoriteProducts = () => {
 
   }, []);
 
-  console.log(userData);
-
   if (loading) {
     return (
       <main className="container-padding">
@@ -26,6 +24,7 @@ export const FavoriteProducts = () => {
       </main>
     )
   }
+
 
   return (
     <main className="container-padding">
@@ -47,6 +46,7 @@ export const FavoriteProducts = () => {
           {userData?.data.favoriteProducts.map((product) => (
             <MiniProductCard
               key={product.productId}
+              productPrice={product.productPrice}
               productImageUrl={product.productImageUrl}
               productName={product.productName}
               productId={product.productId}

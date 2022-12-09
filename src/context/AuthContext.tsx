@@ -15,7 +15,7 @@ export const AuthContext = createContext<AuthContextType>({} as AuthContextType)
 
 export const AuthContextProvider = ({ children }: Props) => {
 
-  const [token, setToken] = useState<null | string>("true");
+  const [token, setToken] = useState<null | string>(null);
 
 
   return (
