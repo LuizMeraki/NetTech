@@ -1,9 +1,23 @@
 import { PageTitle } from "../../components/PageTitle";
 import { RegisterForm } from "../../components/RegisterForm";
+import { useAuthContext } from '../../hooks/useAuthContex';
+import { useNavigate } from "react-router-dom";
+import { useEffect } from 'react';
 import styles from "./style.module.css";
 
 
 export const Register = () => {
+
+  const { token } = useAuthContext();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+
+    if (token) navigate("/");
+
+  }, []);
+
+
   return (
     <main className="container-padding">
       <div className="max-width">

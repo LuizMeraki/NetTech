@@ -1,5 +1,5 @@
 export const requestErrorMessages = {
-  emailAlreadyRegistered: "E-mail already registered.",
+  emailAlreadyExists: "E-mail already exists.",
   emailNotRegistered: "E-mail not registered.",
   incorrectPassword: "Incorrect password.",
   differentPasswords: "Password must be the same.",

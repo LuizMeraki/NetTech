@@ -24,19 +24,19 @@ export const AppRoutes = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         {/* PRIVATE ROUTES */}
-        <Route path="/add-product" element={<PrivateRoute />} >
+        <Route path="/add-product" element={<PrivateRoute redirectTo="/login" />} >
           <Route path="/add-product" element={<AddProduct />} />
         </Route>
-        <Route path="/product-details/:productId" element={<PrivateRoute />} >
+        <Route path="/product-details/:productId" element={<PrivateRoute redirectTo="/login" />} >
           <Route path="/product-details/:productId" element={<ProductDetails />} />
         </Route>
-        <Route path="/search" element={<PrivateRoute />}>
+        <Route path="/search" element={<PrivateRoute redirectTo="/login" />}>
           <Route path="/search" element={<Search />} />
         </Route>
-        <Route path="/favorites" element={<PrivateRoute />}>
+        <Route path="/favorites" element={<PrivateRoute redirectTo="/login" />}>
           <Route path="/favorites" element={<FavoriteProducts />} />
         </Route>
-        <Route path="/cart" element={<PrivateRoute />}>
+        <Route path="/cart" element={<PrivateRoute redirectTo="/login" />}>
           <Route path="/cart" element={<CartPage />} />
         </Route>
       </Routes>

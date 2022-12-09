@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { IFormData } from '../interfaces/FormData';
 import { requestErrorMessages } from "../constants/requestErrorMessages";
+import { useAuthContext } from "./useAuthContext";
 import axios from "axios";
 
 
@@ -9,6 +10,8 @@ const API = import.meta.env.VITE_API;
 
 
 export const useRegister = () => {
+
+  const { setToken } = useAuthContext();
 
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -43,8 +46,8 @@ export const useRegister = () => {
       } else if (error == requestErrorMessages.passwordLength) {
         setError(error)
         return;
-      } else if (error.response.data == requestErrorMessages.emailAlreadyRegistered) {
-        setError(requestErrorMessages.emailAlreadyRegistered)
+      } else if (error.response.data == requestErrorMessages.emailAlreadyExists) {
+        setError(requestErrorMessages.emailAlreadyExists)
         return;
       } else {
         setError(requestErrorMessages.genericError);
@@ -53,7 +56,7 @@ export const useRegister = () => {
     }
 
     setLoading(false);
-    navigate("/login");
+    navigate("/");
   }
 
   return ({ registerUser, loading, error });
