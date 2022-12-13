@@ -1,8 +1,4 @@
-interface Data {
+export type Data = {
   title: string;
   content: string; 
-}
-
-export interface IComments {
-  data: Data[]
-}
+};
