@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { IFormData } from '../interfaces/FormData';
 import { useNavigate } from 'react-router-dom';
 import { requestErrorMessages } from '../constants/requestErrorMessages';
+import { useAuthContext } from './useAuthContex';
 import axios from 'axios';
 
 
@@ -9,6 +10,8 @@ const API = import.meta.env.VITE_API;
 
 
 export const useLogin = () => {
+
+  const { setToken } = useAuthContext();
 
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -28,7 +31,9 @@ export const useLogin = () => {
         throw requestErrorMessages.passwordLength;
       }
 
-      await axios.post(`${API}/user/loginuser`, data);
+      const response: any = await axios.post(`${API}/user/loginuser`, data);
+
+      response && setToken(response.data);
 
     } catch (error: any) {
 

@@ -34,8 +34,10 @@ export const useRegister = () => {
         throw requestErrorMessages.passwordLength;
       }
 
-      await axios.post(`${API}/user/createuser`, data);
+      const response: any = await axios.post(`${API}/user/createuser`, data);
 
+      response && setToken(response.data);
+      
     } catch (error: any) {
 
       setLoading(false);

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { requestErrorMessages } from "../constants/requestErrorMessages";
 import { IUserData } from '../interfaces/UserData';
+import { useAuthContext } from "./useAuthContext";
 import axios from "axios";
 
 
@@ -8,6 +9,8 @@ const API = import.meta.env.VITE_API;
 
 
 export const useFecthUserData = () => {
+
+  const { token } = useAuthContext();
 
   const [userData, setUserData] = useState<IUserData | null>(null);
 
@@ -32,6 +35,6 @@ export const useFecthUserData = () => {
 
     setLoading(false);
   }
-  
+
   return ({ fetchUserData, userData, loading, error });
 }

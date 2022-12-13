@@ -25,7 +25,7 @@ export const RegisterForm = () => {
       username,
       email,
       password,
-    }
+    };
 
     registerUser(data, confirmPassword);
   }

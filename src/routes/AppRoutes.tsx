@@ -23,15 +23,11 @@ export const AppRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/product-details/:productId" element={<ProductDetails />} />
+        <Route path="/search" element={<Search />} />
         {/* PRIVATE ROUTES */}
         <Route path="/add-product" element={<PrivateRoute redirectTo="/login" />} >
           <Route path="/add-product" element={<AddProduct />} />
-        </Route>
-        <Route path="/product-details/:productId" element={<PrivateRoute redirectTo="/login" />} >
-          <Route path="/product-details/:productId" element={<ProductDetails />} />
-        </Route>
-        <Route path="/search" element={<PrivateRoute redirectTo="/login" />}>
-          <Route path="/search" element={<Search />} />
         </Route>
         <Route path="/favorites" element={<PrivateRoute redirectTo="/login" />}>
           <Route path="/favorites" element={<FavoriteProducts />} />

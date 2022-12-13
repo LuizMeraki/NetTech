@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { requestErrorMessages } from "../constants/requestErrorMessages";
 import { IProductData, productData } from '../interfaces/Products';
 import { useFecthUserData } from './useFetchUserData';
+import { useAuthContext } from './useAuthContex';
 import axios from "axios";
 
 
@@ -9,6 +10,8 @@ const API = import.meta.env.VITE_API;
 
 
 export const useFetchProductDetails = () => {
+
+  const { token } = useAuthContext();
 
   const { fetchUserData, userData } = useFecthUserData();
 
@@ -26,7 +29,8 @@ export const useFetchProductDetails = () => {
     try {
 
       const request = await axios.get(`${API}/product/getproductbyid?productId=${id}`);
-      await fetchUserData("1");
+
+      token && await fetchUserData("1");
 
       setProductDetails(request);
 
