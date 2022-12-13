@@ -59,10 +59,10 @@ export const ProductDetails = () => {
         <section className={styles.commentsSection}>
           <h2>Comentários</h2>
           <div className={styles.commentsContainer}>
-            {productDetails?.data.posts.length == 0 && (
+            {productDetails?.data.posts?.length == 0 && (
               <p className={styles.noReviewsMessage}>This product has no reviews, be the first one!</p>
             )}
-            {productDetails?.data.posts.map((comment, index) => (
+            {productDetails?.data.posts?.map((comment, index) => (
               <CommentCard key={index} title={comment.title} content={comment.content} />
             ))}
           </div>
