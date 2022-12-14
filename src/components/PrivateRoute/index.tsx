@@ -1,5 +1,5 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { useAuthContext } from '../../hooks/useAuthContext';
+import { getLocalStorageItem } from './../../utils/localStorageActions';
 
 
 interface Props {
@@ -9,11 +9,13 @@ interface Props {
 
 export const PrivateRoute = ({ redirectTo }: Props) => {
 
-  const { token } = useAuthContext();
+  const storageValue = getLocalStorageItem("token");
 
   return (
-    token ?
+    storageValue ? (
       <Outlet />
-      : <Navigate to={redirectTo} />
+    ) : (
+      <Navigate to={redirectTo} />
+    )
   )
 }
