@@ -34,10 +34,14 @@ export const useRegister = () => {
         throw requestErrorMessages.passwordLength;
       }
 
-      const response: any = await axios.post(`${API}/user/createuser`, data);
+      const response: any = await axios.post(`${API}/user/createuser`, data, {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        }
+      });
 
       response && setToken(response.data);
-      
+
     } catch (error: any) {
 
       setLoading(false);

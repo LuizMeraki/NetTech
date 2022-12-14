@@ -31,7 +31,11 @@ export const useLogin = () => {
         throw requestErrorMessages.passwordLength;
       }
 
-      const response: any = await axios.post(`${API}/user/loginuser`, data);
+      const response: any = await axios.post(`${API}/user/loginuser`, data, {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        }
+      });
 
       response && setToken(response.data);
 
