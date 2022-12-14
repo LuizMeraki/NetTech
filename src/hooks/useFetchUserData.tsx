@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { requestErrorMessages } from "../constants/requestErrorMessages";
-import { IUserData } from '../interfaces/UserData';
+import { IUserData } from "../interfaces/UserData";
 import { useAuthContext } from "./useAuthContext";
 import axios from "axios";
 
@@ -23,7 +23,12 @@ export const useFecthUserData = () => {
 
     try {
 
-      const request: any = await axios.get(`${API}/user/getuserbyid?userId=${id}`);
+      const request: any = await axios.get(`${API}/user/getuserbyid?userId=${id}`, {
+        headers: {
+          "Authorization": token,
+          "Access-Control-Allow-Origin": "*",
+        },
+      });
 
       setUserData(request);
 

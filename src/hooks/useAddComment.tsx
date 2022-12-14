@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { requestErrorMessages } from './../constants/requestErrorMessages';
+import { useAuthContext } from './useAuthContex';
 import axios from "axios";
 
 
@@ -7,6 +8,8 @@ const API = import.meta.env.VITE_API;
 
 
 export const useAddComment = () => {
+
+  const { token } = useAuthContext();
 
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -18,7 +21,15 @@ export const useAddComment = () => {
 
     try {
 
-      await axios.post(`${API}/post/createpost?userId=${userID}&productId=${productID}`, data);
+      await axios.post(`${API}/post/createpost?userId=${userID}&productId=${productID}`,
+        data,
+        {
+          headers: {
+            "Authorization": token,
+            "Access-Control-Allow-Origin": "*",
+          },
+        }
+      );
 
     } catch (error) {
 
