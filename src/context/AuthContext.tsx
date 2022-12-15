@@ -2,11 +2,10 @@ import {
   createContext,
   Dispatch,
   SetStateAction,
-  useEffect,
   useState
 } from "react";
 
-import { getLocalStorageItem, setLocalStorageItem } from "../utils/localStorageActions";
+import { getLocalStorageItem } from "../utils/localStorageActions";
 
 interface Props {
   children: JSX.Element;
@@ -25,18 +24,12 @@ export const AuthContextProvider = ({ children }: Props) => {
 
   const [token, setToken] = useState<null | string>(null);
 
-  useEffect(() => {
+  if (!token) {
 
-    setLocalStorageItem("token", token);
+    const storageValue = getLocalStorageItem("token");
+    storageValue && setToken(storageValue);
 
-    if (!token) {
-
-      const storageValue = getLocalStorageItem("token");
-      storageValue && setToken(storageValue);
-
-    }
-
-  }, [token]);
+  }
 
 
   return (
