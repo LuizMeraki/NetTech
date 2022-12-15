@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Loading } from "../../components/Loding";
 import { ProductDetailsActions } from "../../components/ProductDetailsActions";
 import { useFetchProductDetails } from "../../hooks/useFetchProductDetails";
@@ -8,15 +8,29 @@ import { AddCommentModal } from '../../components/AddCommentModal';
 import { FormButton } from '../../components/FormButton/index';
 import { CommentCard } from '../../components/CommentCard';
 import { ToastContainer } from 'react-toastify';
+import { useAuthContext } from '../../hooks/useAuthContext';
 import styles from "./style.module.css";
 
 
 export const ProductDetails = () => {
 
+  const { token } = useAuthContext();
   const { productId } = useParams();
+  const navigate = useNavigate();
+
   const [showCommentModal, setShowCommentModal] = useState<boolean>(false);
 
   const { fetchProductDetails, productDetails, favoritedProducts, loading, error } = useFetchProductDetails();
+
+
+  function handleAddComment() {
+
+    if (!token) { navigate("/login"); return };
+
+    setShowCommentModal(true);
+
+  }
+
 
   useEffect(() => {
 
@@ -66,9 +80,7 @@ export const ProductDetails = () => {
               <CommentCard key={index} title={comment.title} content={comment.content} />
             ))}
           </div>
-          <FormButton onClick={() => setShowCommentModal(true)}>
-            Add a comment
-          </FormButton>
+          <FormButton onClick={handleAddComment}>Add a comment</FormButton>
         </section>
       </div>
     </main>
