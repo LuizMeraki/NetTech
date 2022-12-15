@@ -9,26 +9,34 @@ export const useFavoriteProduct = () => {
 
   const { token } = useAuthContext();
 
+
   function favoriteProduct(userID: string, productID: string | undefined) {
 
-    axios.post(`${API}/user/addproducttofavoritelist?userId=${userID}&productId=${productID}`, {}, {
-      headers: {
-        "Authorization": token,
-        "Access-Control-Allow-Origin": "*",
-      }
-    });
+    try {
+
+      axios.post(`${API}/user/addproducttofavoritelist?userId=${userID}&productId=${productID}`, {}, {
+        headers: {
+          "Authorization": token,
+          "Access-Control-Allow-Origin": "*",
+        }
+      });
+
+    } catch (error) { }
   }
-  
+
 
   function removeFavoriteProduct(userID: string, productID: string | undefined) {
 
-    axios.delete(`${API}/user/deleteproductfromwishlist?userId=${userID}&productId=${productID}`, {
-      headers: {
-        "Authorization": token,
-        "Access-Control-Allow-Origin": "*",
-      }
-    });
+    try {
 
+      axios.delete(`${API}/user/deleteproductfromwishlist?userId=${userID}&productId=${productID}`, {
+        headers: {
+          "Authorization": token,
+          "Access-Control-Allow-Origin": "*",
+        }
+      });
+
+    } catch (error) { }
   }
 
   return ({ favoriteProduct, removeFavoriteProduct });
