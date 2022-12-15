@@ -1,6 +1,6 @@
 import { LoginForm } from "../../components/LoginForm";
 import { PageTitle } from "../../components/PageTitle";
-import { useAuthContext } from '../../hooks/useAuthContex';
+import { useAuthContext } from '../../hooks/useAuthContext';
 import { useNavigate } from "react-router-dom";
 import { useEffect } from 'react';
 import styles from "./style.module.css";
