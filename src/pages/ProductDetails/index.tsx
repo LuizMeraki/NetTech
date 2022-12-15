@@ -18,9 +18,15 @@ export const ProductDetails = () => {
   const { productId } = useParams();
   const navigate = useNavigate();
 
-  const [showCommentModal, setShowCommentModal] = useState<boolean>(false);
+  const {
+    fetchProductDetails,
+    productDetails,
+    favoriteProducts,
+    productsOnCart,
+    loading,
+    error } = useFetchProductDetails();
 
-  const { fetchProductDetails, productDetails, favoritedProducts, loading, error } = useFetchProductDetails();
+  const [showCommentModal, setShowCommentModal] = useState<boolean>(false);
 
 
   function handleAddComment() {
@@ -36,7 +42,7 @@ export const ProductDetails = () => {
 
     fetchProductDetails(productId);
 
-  }, [productId]);
+  }, []);
 
 
   if (loading) {
@@ -56,7 +62,8 @@ export const ProductDetails = () => {
         <ProductDetailsActions
           userID="1"
           productID={productId}
-          favoritedProducts={favoritedProducts}
+          favoriteProducts={favoriteProducts}
+          productsOnCart={productsOnCart}
         />
         <section className={styles.flexContainer}>
           <div className={styles.productDetailsContainer}>
