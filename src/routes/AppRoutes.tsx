@@ -10,7 +10,7 @@ import { Login } from '../pages/Login';
 import { AddProduct } from '../pages/AddProduct';
 import { ProductDetails } from "../pages/ProductDetails";
 import { Search } from "../pages/Search";
-import { FavoriteProducts } from "../pages/FavoriteProducts";
+import { WishList } from "../pages/WishList";
 import { CartPage } from '../pages/CartPage';
 import { PrivateRoute } from "../components/PrivateRoute";
 
@@ -30,7 +30,7 @@ export const AppRoutes = () => {
           <Route path="/add-product" element={<AddProduct />} />
         </Route>
         <Route path="/favorites" element={<PrivateRoute redirectTo="/login" />}>
-          <Route path="/favorites" element={<FavoriteProducts />} />
+          <Route path="/favorites" element={<WishList />} />
         </Route>
         <Route path="/cart" element={<PrivateRoute redirectTo="/login" />}>
           <Route path="/cart" element={<CartPage />} />
