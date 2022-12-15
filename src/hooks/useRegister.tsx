@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { IFormData } from '../interfaces/FormData';
 import { requestErrorMessages } from "../constants/requestErrorMessages";
 import { useAuthContext } from "./useAuthContext";
+import { setLocalStorageItem } from '../utils/localStorageActions';
 import axios from "axios";
 
 
@@ -40,7 +41,12 @@ export const useRegister = () => {
         }
       });
 
-      response && setToken(response.data);
+      if (response) {
+
+        setToken(response.data);
+        setLocalStorageItem("token", response.data);
+
+      }
 
     } catch (error: any) {
 
