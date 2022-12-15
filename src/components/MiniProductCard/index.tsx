@@ -1,12 +1,11 @@
 import { AiOutlineEye } from "react-icons/ai";
-import { FiTrash } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
-import { productData } from "../../interfaces/Products";
+import { productDataType } from '../../interfaces/Products';
 import { moneyFormatter } from "../../utils/moneyFormatter";
 import styles from "./style.module.css";
 
 
-export const MiniProductCard = ({ productImageUrl, productName, productPrice, productId }: productData) => {
+export const MiniProductCard = ({ productImageUrl, productName, productPrice, productId }: productDataType) => {
 
   const navigate = useNavigate();
 
@@ -29,9 +28,6 @@ export const MiniProductCard = ({ productImageUrl, productName, productPrice, pr
       <div className={styles.productActions}>
         <button type="button" onClick={handleSeeProduct}>
           <AiOutlineEye />
-        </button>
-        <button type="button">
-          <FiTrash />
         </button>
       </div>
     </div>
