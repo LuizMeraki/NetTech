@@ -1,6 +1,7 @@
+import { useEffect } from 'react';
 import { PageTitle } from "../../components/PageTitle";
 import { MiniProductCard } from '../../components/MiniProductCard/index';
-import { useFetchFavoriteProducts } from "../../hooks/useFetchFavoriteProducts";
+import { useFavoriteProduct } from "../../hooks/useFavoriteProduct";
 import { Loading } from "../../components/Loding";
 import { ErrorMessage } from "../../components/ErrorMessage";
 import styles from "./stlye.module.css";
@@ -8,7 +9,15 @@ import styles from "./stlye.module.css";
 
 export const WishList = () => {
 
-  const { favoriteProducts, loading, error } = useFetchFavoriteProducts("1");
+  const { fetchFavoriteProducts, favoriteProducts, loading, error } = useFavoriteProduct();
+
+
+  useEffect(() => {
+
+    fetchFavoriteProducts("1");
+
+  }, []);
+
 
   if (loading) {
     return (
