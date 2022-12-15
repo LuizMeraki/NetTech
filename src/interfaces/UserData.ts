@@ -1,8 +1,8 @@
-import { productData } from './Products';
+import { productDataType } from './Products';
 
 
 export type UserDataType = {
-  favoriteProducts: productData[];
+  favoriteProducts: productDataType[];
 }
 
 export interface IUserData {
