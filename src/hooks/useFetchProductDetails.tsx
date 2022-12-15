@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { requestErrorMessages } from "../constants/requestErrorMessages";
-import { IProductData, productData } from '../interfaces/Products';
-import { useFecthUserData } from './useFetchUserData';
-import { useAuthContext } from './useAuthContex';
+import { IProductData } from '../interfaces/Products';
+import { useAuthContext } from './useAuthContext';
+import { useFavoriteProduct } from './useFavoriteProduct';
+import { useCartProduct } from './useCartProduct';
 import axios from "axios";
 
 
@@ -13,13 +14,14 @@ export const useFetchProductDetails = () => {
 
   const { token } = useAuthContext();
 
-  const { fetchUserData, userData } = useFecthUserData();
+  const { fetchFavoriteProducts, favoriteProducts } = useFavoriteProduct();
+  const { fetchProductsOnCart, productsOnCart } = useCartProduct();
 
   const [productDetails, setProductDetails] = useState<IProductData | null>(null);
-  const [favoritedProducts, setFavoritedProducts] = useState<productData[] | null>(null);
 
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+
 
   async function fetchProductDetails(id: string | undefined) {
 
@@ -30,7 +32,11 @@ export const useFetchProductDetails = () => {
 
       const request = await axios.get(`${API}/product/getproductbyid?productId=${id}`);
 
-      token && await fetchUserData("1");
+      if (token) {
+
+        await fetchFavoriteProducts("1");
+        await fetchProductsOnCart("1");
+      }
 
       setProductDetails(request);
 
@@ -43,11 +49,13 @@ export const useFetchProductDetails = () => {
     setLoading(false);
   }
 
-  useEffect(() => {
-
-    userData && setFavoritedProducts(userData.data.favoriteProducts);
-
-  }, [userData]);
-
-  return ({ fetchProductDetails, productDetails, favoritedProducts, loading, error });
+  
+  return ({
+    fetchProductDetails,
+    productDetails,
+    favoriteProducts,
+    productsOnCart,
+    loading,
+    error
+  });
 }

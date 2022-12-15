@@ -1,6 +1,6 @@
 import { FormEvent, useState } from "react";
 import { Input } from "../Input";
-import { productData } from '../../interfaces/Products';
+import { productDataType } from '../../interfaces/Products';
 import { useAddProduct } from '../../hooks/useAddProduct';
 import { LoadingScreen } from "../LoadingScreen";
 import { ErrorMessage } from "../ErrorMessage";
@@ -21,7 +21,7 @@ export const AddProductForm = () => {
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    const data: productData = {
+    const data: productDataType = {
       productName,
       productPrice: parseFloat(productPrice),
       productImageUrl,

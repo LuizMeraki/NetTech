@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import { AiOutlineHeart } from "react-icons/ai";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { useFavoriteProduct } from "../../hooks/useFavoriteProduct";
-import { productData } from '../../interfaces/Products';
-import { useAuthContext } from '../../hooks/useAuthContex';
+import { useCartProduct } from '../../hooks/useCartProduct';
+import { IProductsData } from '../../interfaces/Products';
+import { useAuthContext } from '../../hooks/useAuthContext';
 import { useNavigate } from 'react-router-dom';
 import styles from "./style.module.css";
 
@@ -11,25 +12,27 @@ import styles from "./style.module.css";
 interface Props {
   userID: string;
   productID: string | undefined;
-  favoritedProducts: productData[] | null;
+  favoriteProducts: IProductsData | null;
+  productsOnCart: IProductsData | null;
 }
 
 const productFavorited = `${styles.productFavorited}`;
 const unfavoriteProduct = `${styles.unfavoriteProduct}`;
 
-const productInCart = `${styles.productInCart}`;
-const productNotInCart = `${styles.productNotInCart}`;
+const productOnCart = `${styles.productOnCart}`;
+const productNotOnCart = `${styles.productNotOnCart}`;
 
 
-export const ProductDetailsActions = ({ userID, productID, favoritedProducts }: Props) => {
+export const ProductDetailsActions = ({ userID, productID, favoriteProducts, productsOnCart }: Props) => {
 
   const { token } = useAuthContext();
-
-  const { favoriteProduct, removeFavoriteProduct } = useFavoriteProduct();
   const navigate = useNavigate();
 
+  const { favoriteProduct, removeFavoriteProduct } = useFavoriteProduct();
+  const { addProductOnCart, removeProductFromCart } = useCartProduct();
+
   const [isProductAlreadyFavorited, setIsProductAlreadyFavorited] = useState<boolean>(false);
-  const [isProductAlreadyInCart, setIsProductAlreadyInCart] = useState<boolean>(false);
+  const [isProductAlreadyOnCart, setIsProductAlreadyOnCart] = useState<boolean>(false);
 
 
   function handleFavoriteActions() {
@@ -50,18 +53,33 @@ export const ProductDetailsActions = ({ userID, productID, favoritedProducts }: 
 
     if (!token) { navigate("/login"); return };
 
-    setIsProductAlreadyInCart((prevState) => !prevState);
+    if (isProductAlreadyOnCart) {
+      removeProductFromCart("1", productID);
+    } else {
+      addProductOnCart("1", productID);
+    }
+
+    setIsProductAlreadyOnCart((prevState) => !prevState);
   }
 
 
   useEffect(() => {
 
-    favoritedProducts?.forEach((product) => {
-      product.productId?.toString() == productID &&
+    favoriteProducts?.data.forEach((product) => {
+      product.productId?.toString() === productID &&
         setIsProductAlreadyFavorited(true);
+    });
+
+  }, [favoriteProducts]);
+
+  useEffect(() => {
+
+    productsOnCart?.data.forEach((product) => {
+      product.productId?.toString() === productID &&
+        setIsProductAlreadyOnCart(true);
     })
 
-  }, [favoritedProducts]);
+  }, [productsOnCart]);
 
 
   return (
@@ -75,7 +93,7 @@ export const ProductDetailsActions = ({ userID, productID, favoritedProducts }: 
           <AiOutlineHeart />
         </button>
         <button
-          className={isProductAlreadyInCart ? productInCart : productNotInCart}
+          className={isProductAlreadyOnCart ? productOnCart : productNotOnCart}
           onClick={handleCartActions}
         >
           <HiOutlineShoppingCart />

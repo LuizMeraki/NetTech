@@ -1,6 +1,6 @@
 import { PageTitle } from "../../components/PageTitle";
 import { RegisterForm } from "../../components/RegisterForm";
-import { useAuthContext } from '../../hooks/useAuthContex';
+import { useAuthContext } from '../../hooks/useAuthContext';
 import { useNavigate } from "react-router-dom";
 import { useEffect } from 'react';
 import styles from "./style.module.css";

@@ -1,3 +1,4 @@
+import { useAuthContext } from '../../hooks/useAuthContext';
 import { Link } from 'react-router-dom';
 import { SearchBar } from "../SearchBar";
 
@@ -6,7 +7,6 @@ import { HiOutlineShoppingCart } from "react-icons/hi";
 
 import Logo from "../../assets/logo.svg";
 import styles from "./style.module.css";
-import { useAuthContext } from '../../hooks/useAuthContex';
 
 
 export const Header = () => {

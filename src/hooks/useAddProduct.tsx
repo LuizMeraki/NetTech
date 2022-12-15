@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { productData } from '../interfaces/Products';
+import { productDataType } from '../interfaces/Products';
 import { requestErrorMessages } from "../constants/requestErrorMessages";
 import { useAuthContext } from "./useAuthContext";
 import axios from "axios";
@@ -15,7 +15,7 @@ export const useAddProduct = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  async function addProduct(data: productData) {
+  async function addProduct(data: productDataType) {
 
     setLoading(true);
     setError(null);

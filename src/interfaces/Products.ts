@@ -1,7 +1,7 @@
 import { Data } from "./Commets";
 
 
-export type productData = {
+export type productDataType = {
   productId?: number;
   productName: string;
   productPrice?: number;
@@ -11,9 +11,9 @@ export type productData = {
 }
 
 export interface IProductsData {
-  data: productData[];
+  data: productDataType[];
 }
 
 export interface IProductData {
-  data: productData;
+  data: productDataType;
 }

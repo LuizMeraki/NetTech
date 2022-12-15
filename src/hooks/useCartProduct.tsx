@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
-import { IProductsData } from '../interfaces/Products';
+import { IProductsData } from "../interfaces/Products";
 import { requestErrorMessages } from "../constants/requestErrorMessages";
 import axios from "axios";
 
@@ -8,20 +8,20 @@ import axios from "axios";
 const API = import.meta.env.VITE_API;
 
 
-export const useFavoriteProduct = () => {
+export const useCartProduct = () => {
 
   const { token } = useAuthContext();
 
-  const [favoriteProducts, setFavoriteProducts] = useState<IProductsData | null>(null);
+  const [productsOnCart, setProductsOnCart] = useState<IProductsData | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
 
-  function favoriteProduct(userID: string, productID: string | undefined) {
+  function addProductOnCart(userID: string, productID: string | undefined) {
 
     try {
 
-      axios.post(`${API}/user/addproducttofavoritelist?userId=${userID}&productId=${productID}`, {}, {
+      axios.post(`${API}/user/addproducttocartlist?userId=${userID}&productId=${productID}`, {}, {
         headers: {
           "Authorization": token,
           "Access-Control-Allow-Origin": "*",
@@ -32,11 +32,11 @@ export const useFavoriteProduct = () => {
   }
 
 
-  function removeFavoriteProduct(userID: string, productID: string | undefined) {
+  function removeProductFromCart(userID: string, productID: string | undefined) {
 
     try {
 
-      axios.delete(`${API}/user/deleteproductfromwishlist?userId=${userID}&productId=${productID}`, {
+      axios.delete(`${API}/user/deleteproductfromcartlist?userId=${userID}&productId=${productID}`, {
         headers: {
           "Authorization": token,
           "Access-Control-Allow-Origin": "*",
@@ -44,24 +44,25 @@ export const useFavoriteProduct = () => {
       });
 
     } catch (error) { }
+
   }
 
 
-  async function fetchFavoriteProducts(userID: string) {
+  async function fetchProductsOnCart(userID: string) {
 
     setLoading(true);
     setError(null);
 
     try {
 
-      const response: any = await axios.get(`${API}/user/getwishlistfromuser?userId=${userID}`, {
+      const response: any = await axios.get(`${API}/user/getcartlistfromuser?userId=${userID}`, {
         headers: {
           "Authorization": token,
           "Access-Control-Allow-Origin": "*",
         }
       });
 
-      setFavoriteProducts(response);
+      setProductsOnCart(response);
 
     } catch (error) {
 
@@ -75,12 +76,11 @@ export const useFavoriteProduct = () => {
 
 
   return ({
-    favoriteProduct,
-    removeFavoriteProduct,
-    fetchFavoriteProducts,
-    favoriteProducts,
+    addProductOnCart,
+    removeProductFromCart,
+    fetchProductsOnCart,
+    productsOnCart,
     loading,
     error
   });
-
 }

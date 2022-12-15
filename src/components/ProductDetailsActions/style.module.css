@@ -25,7 +25,7 @@
 }
 
 .productFavorited,
-.productInCart {
+.productOnCart {
   animation: pop-up .5s ease-in;
 }
 
@@ -62,20 +62,20 @@
   color: #fff;
 }
 
-.productNotInCart,
-.productInCart {
+.productNotOnCart,
+.productOnCart {
   border: 1px solid var(--main-blue);
   transition: .1s;
 }
 
-.productNotInCart svg {
+.productNotOnCart svg {
   color: var(--main-blue);
 }
 
-.productInCart {
+.productOnCart {
   background-color: var(--main-blue);
 }
 
-.productInCart {
+.productOnCart {
   color: #fff;
 }

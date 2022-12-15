@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { IFormData } from '../interfaces/FormData';
 import { useNavigate } from 'react-router-dom';
 import { requestErrorMessages } from '../constants/requestErrorMessages';
-import { useAuthContext } from './useAuthContex';
+import { useAuthContext } from './useAuthContext';
 import { setLocalStorageItem } from '../utils/localStorageActions';
 import axios from 'axios';
 

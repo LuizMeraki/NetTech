@@ -11,7 +11,7 @@ import { AddProduct } from '../pages/AddProduct';
 import { ProductDetails } from "../pages/ProductDetails";
 import { Search } from "../pages/Search";
 import { WishList } from "../pages/WishList";
-import { CartPage } from '../pages/CartPage';
+import { Cart } from '../pages/Cart';
 import { PrivateRoute } from "../components/PrivateRoute";
 
 
@@ -33,7 +33,7 @@ export const AppRoutes = () => {
           <Route path="/favorites" element={<WishList />} />
         </Route>
         <Route path="/cart" element={<PrivateRoute redirectTo="/login" />}>
-          <Route path="/cart" element={<CartPage />} />
+          <Route path="/cart" element={<Cart />} />
         </Route>
       </Routes>
       <UserBenefitsSection />
