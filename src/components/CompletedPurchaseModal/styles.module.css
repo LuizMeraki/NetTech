@@ -1,0 +1,35 @@
+.container {
+  color: #fff;
+  background-color: var(--main-blue);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.contentContainer {
+  margin: 0 auto 3.5em;
+}
+
+.contentContainer p {
+  font-size: 1.150em;
+  max-width: 600px;
+  text-align: center;
+}
+
+.contentContainer p svg {
+  font-size: 1.5em;
+  margin-left: 10px;
+}
+
+.backHomecontainer button {
+  color: var(--main-blue);
+  background-color: #fff;
+  padding: .5em 2.5em;
+  border-radius: 20px;
+}
