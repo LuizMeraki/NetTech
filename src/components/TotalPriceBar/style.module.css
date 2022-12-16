@@ -1,0 +1,38 @@
+.container {
+  width: 100%;
+  padding: 2em 0;
+  border-top: 2px solid #e2e2e2;
+}
+
+.flexArea {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.totalPriceContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.totalPriceContainer p {
+  margin-right: 10px;
+  font-size: clamp(.950em, 3vw, 1.1em);
+  font-weight: 600;
+}
+
+.totalPriceContainer span {
+  color: var(--main-blue);
+  font-size: clamp(.950em, 3vw, 1em);
+  font-weight: 500;
+}
+
+.redirectContainer button {
+  color: #fff;
+  font-size: clamp(.950em, 3vw, 1em);
+  text-decoration: none;
+  background-color: var(--main-blue);
+  padding: .5em clamp(1em, 6vw, 2.5em);
+  border-radius: 25px;
+}
