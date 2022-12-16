@@ -1,8 +1,9 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import { Header } from "../components/Header";
 import { UserBenefitsSection } from "../components/UserBenefitsSection";
 import { Footer } from '../components/Footer';
+import { PrivateRoute } from "../components/PrivateRoute";
 
 import { Home } from "../pages/Home";
 import { Register } from "../pages/Register";
@@ -12,7 +13,7 @@ import { ProductDetails } from "../pages/ProductDetails";
 import { Search } from "../pages/Search";
 import { WishList } from "../pages/WishList";
 import { Cart } from '../pages/Cart';
-import { PrivateRoute } from "../components/PrivateRoute";
+import { Profile } from '../pages/Profile/index';
 
 
 export const AppRoutes = () => {
@@ -20,6 +21,7 @@ export const AppRoutes = () => {
     <BrowserRouter>
       <Header />
       <Routes>
+        <Route path="*" element={<Navigate to="/" />}/>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
@@ -34,6 +36,9 @@ export const AppRoutes = () => {
         </Route>
         <Route path="/cart" element={<PrivateRoute redirectTo="/login" />}>
           <Route path="/cart" element={<Cart />} />
+        </Route>
+        <Route path="/profile" element={<PrivateRoute redirectTo="/login" />}>
+          <Route path="/profile" element={<Profile />} />
         </Route>
       </Routes>
       <UserBenefitsSection />

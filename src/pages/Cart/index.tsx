@@ -1,21 +1,49 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { PageTitle } from '../../components/PageTitle/index';
 import { useCartProduct } from "../../hooks/useCartProduct";
 import { Loading } from '../../components/Loding';
 import { MiniProductCard } from '../../components/MiniProductCard';
 import { ErrorMessage } from '../../components/ErrorMessage';
+import { TotalPriceBar } from '../../components/TotalPriceBar';
 import styles from "./stlye.module.css";
 
 
 export const Cart = () => {
 
   const { fetchProductsOnCart, productsOnCart, loading, error } = useCartProduct();
+  
+  const [totalPrice, setTotalPrice] = useState<number>(0);
+
+  
+  function getTotalPrice () {
+
+    let counter = 0;
+
+    productsOnCart?.data.forEach((product) => {
+
+      if (product.productPrice) {
+        counter += product.productPrice
+      }
+
+    });
+
+    setTotalPrice(counter);
+
+  }
+
 
   useEffect(() => {
 
     fetchProductsOnCart("1");
 
   }, []);
+
+
+  useEffect(() => {
+
+    productsOnCart && getTotalPrice();
+
+  }, [productsOnCart]);
 
 
   if (loading) {
@@ -28,7 +56,7 @@ export const Cart = () => {
 
 
   return (
-    <main className="container-padding">
+    <main className={`${styles.main} container-padding`}>
       <div className="max-width">
         <PageTitle title="Cart" />
         <div className={styles.productsContainer}>
@@ -48,6 +76,7 @@ export const Cart = () => {
             />
           ))}
         </div>
+        <TotalPriceBar totalPrice={totalPrice} />
       </div>
     </main>
   );
