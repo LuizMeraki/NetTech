@@ -1,0 +1,13 @@
+.main {
+  padding-bottom: 0;
+}
+
+.productsContainer {
+  width: 100%;
+  max-width: 750px;
+  min-height: 250px;
+  max-height: 500px;
+  margin: 0 auto;
+  padding-right: 20px;
+  overflow-y: auto;
+}
