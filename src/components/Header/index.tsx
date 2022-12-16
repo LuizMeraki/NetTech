@@ -2,8 +2,7 @@ import { useAuthContext } from '../../hooks/useAuthContext';
 import { Link } from 'react-router-dom';
 import { SearchBar } from "../SearchBar";
 
-import { AiOutlineHeart, AiOutlineUserAdd } from "react-icons/ai";
-import { HiOutlineShoppingCart } from "react-icons/hi";
+import { AiOutlineHeart, AiOutlineUserAdd, AiOutlineUser } from "react-icons/ai";
 
 import Logo from "../../assets/logo.svg";
 import styles from "./style.module.css";
@@ -27,8 +26,8 @@ export const Header = () => {
               <Link to="/favorites">
                 <AiOutlineHeart />
               </Link>
-              <Link to="/cart">
-                <HiOutlineShoppingCart />
+              <Link to="/profile">
+                <AiOutlineUser />
               </Link>
             </>
             :
