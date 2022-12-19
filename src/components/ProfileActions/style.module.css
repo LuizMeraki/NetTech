@@ -1,0 +1,20 @@
+.container {
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: #e7e9f1;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .3s;
+}
+
+.container:hover {
+  background-color: #d2d5df;
+}
+
+.container svg {
+  margin-right: 10px;
+}
