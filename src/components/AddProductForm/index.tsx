@@ -7,6 +7,7 @@ import { ErrorMessage } from "../ErrorMessage";
 import { FormButton } from "../FormButton";
 import { Link } from "react-router-dom";
 import { Label } from "../Label";
+import styles from "./style.module.css";
 
 
 export const AddProductForm = () => {
@@ -15,6 +16,7 @@ export const AddProductForm = () => {
 
   const [productName, setProductName] = useState<string>("");
   const [productPrice, setProductPrice] = useState<string>("");
+  const [productCategory, setProductCategory] = useState<string>("");
   const [productImageUrl, setProductImageUrl] = useState<string>("");
   const [productDescription, setProductDescription] = useState<string>("");
 
@@ -24,6 +26,7 @@ export const AddProductForm = () => {
     const data: productDataType = {
       productName,
       productPrice: parseFloat(productPrice),
+      productCategory,
       productImageUrl,
       productDescription,
     }
@@ -59,6 +62,21 @@ export const AddProductForm = () => {
           placeholder="Product price"
           required={true}
         />
+      </Label>
+      <Label label="Category">
+        <select
+          className={styles.select}
+          onChange={(e) => setProductCategory(e.target.value)}
+          required
+        >
+          <option value="">Please choose a category</option>
+          <option value="laptop">laptop</option>
+          <option value="keyboard">keyboard</option>
+          <option value="mouse">mouse</option>
+          <option value="microphone">microphone</option>
+          <option value="screen">screen</option>
+          <option value="headphones">headphones</option>
+        </select>
       </Label>
       <Label label="Product image URL">
         <Input
