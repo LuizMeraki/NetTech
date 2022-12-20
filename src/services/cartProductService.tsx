@@ -1,18 +1,15 @@
 import { useState } from "react";
-import { useAuthContext } from "./useAuthContext";
-import { IProductsData } from "../interfaces/Products";
+import { useAuthContext } from "../hooks/useAuthContext";
+import { ProductsDataType } from "../interfaces/Products";
 import { requestErrorMessages } from "../constants/requestErrorMessages";
-import axios from "axios";
+import { api } from "./api";
 
 
-const API = import.meta.env.VITE_API;
-
-
-export const useCartProduct = () => {
+export const cartProductService = () => {
 
   const { token } = useAuthContext();
 
-  const [productsOnCart, setProductsOnCart] = useState<IProductsData | null>(null);
+  const [productsOnCart, setProductsOnCart] = useState<ProductsDataType | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -21,10 +18,9 @@ export const useCartProduct = () => {
 
     try {
 
-      axios.post(`${API}/user/addproducttocartlist?userId=${userID}&productId=${productID}`, {}, {
+      api.post(`user/addproducttocartlist?userId=${userID}&productId=${productID}`, {}, {
         headers: {
           "Authorization": token,
-          "Access-Control-Allow-Origin": "*",
         }
       });
 
@@ -36,10 +32,9 @@ export const useCartProduct = () => {
 
     try {
 
-      axios.delete(`${API}/user/deleteproductfromcartlist?userId=${userID}&productId=${productID}`, {
+      api.delete(`user/deleteproductfromcartlist?userId=${userID}&productId=${productID}`, {
         headers: {
           "Authorization": token,
-          "Access-Control-Allow-Origin": "*",
         }
       });
 
@@ -55,7 +50,7 @@ export const useCartProduct = () => {
 
     try {
 
-      const response: any = await axios.get(`${API}/user/getcartlistfromuser?userId=${userID}`, {
+      const response: any = await api.get(`user/getcartlistfromuser?userId=${userID}`, {
         headers: {
           "Authorization": token,
           "Access-Control-Allow-Origin": "*",

@@ -6,12 +6,12 @@ import styles from "./style.module.css";
 export const AddProduct = () => {
   return (
     <main className="container-padding">
-      <div className="max-width">
+      <section className="max-width">
         <PageTitle title="Add product" />
         <div className={`${styles.container} gray-box`}>
           <AddProductForm />
         </div>
-      </div>
+      </section>
     </main>
   );
 }

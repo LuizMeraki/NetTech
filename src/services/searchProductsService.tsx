@@ -1,15 +1,12 @@
 import { useState } from "react";
-import { IProductsData } from '../interfaces/Products';
+import { ProductsDataType } from '../interfaces/Products';
 import { requestErrorMessages } from "../constants/requestErrorMessages";
-import axios from "axios";
+import { api } from "./api";
 
 
-const API = import.meta.env.VITE_API;
+export const searchProductsService = () => {
 
-
-export const useSearchProducts = () => {
-
-  const [products, setProducts] = useState<IProductsData | null>(null);
+  const [products, setProducts] = useState<ProductsDataType | null>(null);
 
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -23,7 +20,7 @@ export const useSearchProducts = () => {
 
     try {
 
-      const request = await axios.get(`${API}/product/filterproductbyname?productName=${formattedQuery}`);
+      const request = await api.get(`product/filterproductbyname?productName=${formattedQuery}`);
 
       setProducts(request);
 

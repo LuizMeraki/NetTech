@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import { useSearchProducts } from "../../hooks/useSearchProducts";
+import { searchProductsService } from "../../services/searchProductsService";
 import { ProductCard } from "../../components/ProductCard";
 import { Loading } from "../../components/Loding";
 import { PageTitle } from "../../components/PageTitle";
@@ -11,13 +11,15 @@ import styles from "./style.module.css";
 export const Search = () => {
 
   const [query] = useSearchParams();
-  const { searchProducts, products, loading, error } = useSearchProducts();
+  const { searchProducts, products, loading, error } = searchProductsService();
+
 
   function queryFormatter(query: URLSearchParams): string {
     const formattedQuery = query.toString().trim().replace("q=", "");
 
     return formattedQuery;
   }
+
 
   useEffect(() => {
 
@@ -28,7 +30,7 @@ export const Search = () => {
 
   return (
     <main className="container-padding">
-      <div className="max-width">
+      <section className="max-width">
         <PageTitle title="Search" />
         {loading && <Loading />}
         {error &&
@@ -54,7 +56,7 @@ export const Search = () => {
             />
           ))}
         </div>
-      </div>
+      </section>
     </main>
   );
 }

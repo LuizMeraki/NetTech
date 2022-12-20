@@ -1,13 +1,10 @@
 import { useState } from 'react';
-import { useAuthContext } from './useAuthContext';
-import { requestErrorMessages } from './../constants/requestErrorMessages';
-import axios from "axios";
+import { useAuthContext } from '../hooks/useAuthContext';
+import { requestErrorMessages } from '../constants/requestErrorMessages';
+import { api } from './api';
 
 
-const API = import.meta.env.VITE_API;
-
-
-export const useAddComment = () => {
+export const addCommentService = () => {
 
   const { token } = useAuthContext();
 
@@ -21,12 +18,11 @@ export const useAddComment = () => {
 
     try {
 
-      await axios.post(`${API}/post/createpost?userId=${userID}&productId=${productID}`,
+      await api.post(`post/createpost?userId=${userID}&productId=${productID}`,
         data,
         {
           headers: {
             "Authorization": token,
-            "Access-Control-Allow-Origin": "*",
           },
         }
       );

@@ -1,10 +1,16 @@
-import { productDataType } from './Products';
+import { ProductType } from './Products';
 
 
-export type UserDataType = {
-  favoriteProducts: productDataType[];
+type AuthoritiesType = {
+  authority: string;
 }
 
-export interface IUserData {
-  data: UserDataType;
+export type DataType = {
+  authorities: AuthoritiesType[];
+  username: string;
+  favoriteProducts: ProductType[];
+}
+
+export type UserDataType = {
+  data: DataType;
 }

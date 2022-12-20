@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { AiOutlineHeart } from "react-icons/ai";
 import { HiOutlineShoppingCart } from "react-icons/hi";
-import { useFavoriteProduct } from "../../hooks/useFavoriteProduct";
-import { useCartProduct } from '../../hooks/useCartProduct';
-import { IProductsData } from '../../interfaces/Products';
+import { favoriteProductService } from "../../services/favoriteProductService";
+import { cartProductService } from '../../services/cartProductService';
+import { ProductsDataType } from '../../interfaces/Products';
 import { useAuthContext } from '../../hooks/useAuthContext';
 import { useNavigate } from 'react-router-dom';
 import styles from "./style.module.css";
@@ -12,8 +12,8 @@ import styles from "./style.module.css";
 interface Props {
   userID: string;
   productID: string | undefined;
-  favoriteProducts: IProductsData | null;
-  productsOnCart: IProductsData | null;
+  favoriteProducts: ProductsDataType | null;
+  productsOnCart: ProductsDataType | null;
 }
 
 const productFavorited = `${styles.productFavorited}`;
@@ -28,8 +28,8 @@ export const ProductDetailsActions = ({ userID, productID, favoriteProducts, pro
   const { token } = useAuthContext();
   const navigate = useNavigate();
 
-  const { favoriteProduct, removeFavoriteProduct } = useFavoriteProduct();
-  const { addProductOnCart, removeProductFromCart } = useCartProduct();
+  const { favoriteProduct, removeFavoriteProduct } = favoriteProductService();
+  const { addProductOnCart, removeProductFromCart } = cartProductService();
 
   const [isProductAlreadyFavorited, setIsProductAlreadyFavorited] = useState<boolean>(false);
   const [isProductAlreadyOnCart, setIsProductAlreadyOnCart] = useState<boolean>(false);

@@ -1,23 +1,20 @@
 import { useState } from 'react';
 import { requestErrorMessages } from "../constants/requestErrorMessages";
-import { IProductData } from '../interfaces/Products';
-import { useAuthContext } from './useAuthContext';
-import { useFavoriteProduct } from './useFavoriteProduct';
-import { useCartProduct } from './useCartProduct';
-import axios from "axios";
+import { ProductDataType } from '../interfaces/Products';
+import { useAuthContext } from '../hooks/useAuthContext';
+import { favoriteProductService } from './favoriteProductService';
+import { cartProductService } from './cartProductService';
+import { api } from './api';
 
 
-const API = import.meta.env.VITE_API;
-
-
-export const useFetchProductDetails = () => {
+export const fetchProductDetailsService = () => {
 
   const { token } = useAuthContext();
 
-  const { fetchFavoriteProducts, favoriteProducts } = useFavoriteProduct();
-  const { fetchProductsOnCart, productsOnCart } = useCartProduct();
+  const { fetchFavoriteProducts, favoriteProducts } = favoriteProductService();
+  const { fetchProductsOnCart, productsOnCart } = cartProductService();
 
-  const [productDetails, setProductDetails] = useState<IProductData | null>(null);
+  const [productDetails, setProductDetails] = useState<ProductDataType | null>(null);
 
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -30,7 +27,7 @@ export const useFetchProductDetails = () => {
 
     try {
 
-      const request = await axios.get(`${API}/product/getproductbyid?productId=${id}`);
+      const request = await api.get(`/product/getproductbyid?productId=${id}`);
 
       if (token) {
 
@@ -49,7 +46,7 @@ export const useFetchProductDetails = () => {
     setLoading(false);
   }
 
-  
+
   return ({
     fetchProductDetails,
     productDetails,

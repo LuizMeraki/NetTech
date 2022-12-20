@@ -1,18 +1,15 @@
 import { useState } from 'react';
-import { useAuthContext } from "./useAuthContext";
-import { IProductsData } from '../interfaces/Products';
+import { useAuthContext } from "../hooks/useAuthContext";
+import { ProductsDataType } from '../interfaces/Products';
 import { requestErrorMessages } from "../constants/requestErrorMessages";
-import axios from "axios";
+import { api } from './api';
 
 
-const API = import.meta.env.VITE_API;
-
-
-export const useFavoriteProduct = () => {
+export const favoriteProductService = () => {
 
   const { token } = useAuthContext();
 
-  const [favoriteProducts, setFavoriteProducts] = useState<IProductsData | null>(null);
+  const [favoriteProducts, setFavoriteProducts] = useState<ProductsDataType | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -21,10 +18,9 @@ export const useFavoriteProduct = () => {
 
     try {
 
-      axios.post(`${API}/user/addproducttofavoritelist?userId=${userID}&productId=${productID}`, {}, {
+      api.post(`user/addproducttofavoritelist?userId=${userID}&productId=${productID}`, {}, {
         headers: {
           "Authorization": token,
-          "Access-Control-Allow-Origin": "*",
         }
       });
 
@@ -36,10 +32,9 @@ export const useFavoriteProduct = () => {
 
     try {
 
-      axios.delete(`${API}/user/deleteproductfromwishlist?userId=${userID}&productId=${productID}`, {
+      api.delete(`user/deleteproductfromwishlist?userId=${userID}&productId=${productID}`, {
         headers: {
           "Authorization": token,
-          "Access-Control-Allow-Origin": "*",
         }
       });
 
@@ -54,10 +49,9 @@ export const useFavoriteProduct = () => {
 
     try {
 
-      const response: any = await axios.get(`${API}/user/getwishlistfromuser?userId=${userID}`, {
+      const response: any = await api.get(`user/getwishlistfromuser?userId=${userID}`, {
         headers: {
           "Authorization": token,
-          "Access-Control-Allow-Origin": "*",
         }
       });
 

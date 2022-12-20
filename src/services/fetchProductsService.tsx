@@ -1,15 +1,12 @@
 import { useState, useEffect } from "react";
-import { IProductsData } from '../interfaces/Products';
+import { ProductsWithCategoryType } from '../interfaces/Products';
 import { requestErrorMessages } from "../constants/requestErrorMessages";
-import axios from "axios";
+import { api } from "./api";
 
 
-const API = import.meta.env.VITE_API;
+export const fetchProductsService = () => {
 
-
-export const useFetchProducts = () => {
-
-  const [products, setProducts] = useState<IProductsData | null>(null);
+  const [products, setProducts] = useState<ProductsWithCategoryType | null>(null);
 
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -21,9 +18,9 @@ export const useFetchProducts = () => {
 
     try {
 
-      const fetch: any = await axios.get(`${API}/product/getallproducts`);
+      const response: any = await api.get(`category/getallcategories`);
 
-      setProducts(fetch);
+      setProducts(response);
 
     } catch (error) {
 

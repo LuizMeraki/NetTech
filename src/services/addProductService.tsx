@@ -1,28 +1,25 @@
 import { useState } from "react";
-import { productDataType } from '../interfaces/Products';
+import { ProductType } from '../interfaces/Products';
 import { requestErrorMessages } from "../constants/requestErrorMessages";
-import { useAuthContext } from "./useAuthContext";
-import axios from "axios";
+import { useAuthContext } from "../hooks/useAuthContext";
+import { api } from "./api";
 
 
-const API = import.meta.env.VITE_API;
-
-
-export const useAddProduct = () => {
+export const addProductService = () => {
 
   const { token } = useAuthContext();
 
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  async function addProduct(data: productDataType) {
+  async function addProduct(data: ProductType) {
 
     setLoading(true);
     setError(null);
 
     try {
 
-      await axios.post(`${API}/product/createproduct`, data, {
+      await api.post(`product/createproduct`, data, {
         headers: {
           "Access-Control-Allow-Origin": "*",
           "Authorization": token

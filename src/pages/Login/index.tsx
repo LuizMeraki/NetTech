@@ -20,7 +20,7 @@ export const Login = () => {
 
   return (
     <main className="container-padding">
-      <div className="max-width">
+      <section className="max-width">
         <PageTitle title="Login" />
         <div className={styles.container}>
           <div className={`${styles.loginContainer} gray-box`}>
@@ -31,7 +31,7 @@ export const Login = () => {
             <LoginForm />
           </div>
         </div>
-      </div>
+      </section>
     </main>
   );
 }

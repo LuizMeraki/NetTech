@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { PageTitle } from '../../components/PageTitle/index';
-import { useCartProduct } from "../../hooks/useCartProduct";
+import { cartProductService } from "../../services/cartProductService";
 import { Loading } from '../../components/Loding';
 import { MiniProductCard } from '../../components/MiniProductCard';
 import { ErrorMessage } from '../../components/ErrorMessage';
@@ -10,7 +10,7 @@ import styles from "./stlye.module.css";
 
 export const Cart = () => {
 
-  const { fetchProductsOnCart, productsOnCart, loading, error } = useCartProduct();
+  const { fetchProductsOnCart, productsOnCart, loading, error } = cartProductService();
   
   const [totalPrice, setTotalPrice] = useState<number>(0);
 
@@ -57,7 +57,7 @@ export const Cart = () => {
 
   return (
     <main className={`${styles.main} container-padding`}>
-      <div className="max-width">
+      <section className="max-width">
         <PageTitle title="Cart" />
         <div className={styles.productsContainer}>
           {productsOnCart?.data.length == 0 &&
@@ -77,7 +77,7 @@ export const Cart = () => {
           ))}
         </div>
         <TotalPriceBar totalPrice={totalPrice} />
-      </div>
+      </section>
     </main>
   );
 }

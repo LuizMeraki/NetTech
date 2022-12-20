@@ -1,0 +1,7 @@
+.select {
+  font-size: .9em;
+  border: 1px solid #b2b2b2;
+  padding: 8px 12px;
+  outline-width: 1px;
+  outline-color: var(--main-blue);
+}
