@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { PageTitle } from '../../components/PageTitle/index';
-import { useCartProduct } from "../../hooks/useCartProduct";
+import { cartProductService } from "../../services/cartProductService";
 import { Loading } from '../../components/Loding';
 import { MiniProductCard } from '../../components/MiniProductCard';
 import { ErrorMessage } from '../../components/ErrorMessage';
@@ -10,7 +10,7 @@ import styles from "./stlye.module.css";
 
 export const Cart = () => {
 
-  const { fetchProductsOnCart, productsOnCart, loading, error } = useCartProduct();
+  const { fetchProductsOnCart, productsOnCart, loading, error } = cartProductService();
   
   const [totalPrice, setTotalPrice] = useState<number>(0);
 
