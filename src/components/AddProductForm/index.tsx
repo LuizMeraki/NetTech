@@ -1,7 +1,7 @@
 import { FormEvent, useState } from "react";
 import { Input } from "../Input";
 import { productDataType } from '../../interfaces/Products';
-import { useAddProduct } from '../../hooks/useAddProduct';
+import { addProductService } from '../../services/addProductService';
 import { LoadingScreen } from "../LoadingScreen";
 import { ErrorMessage } from "../ErrorMessage";
 import { FormButton } from "../FormButton";
@@ -12,7 +12,7 @@ import styles from "./style.module.css";
 
 export const AddProductForm = () => {
 
-  const { addProduct, loading, error } = useAddProduct();
+  const { addProduct, loading, error } = addProductService();
 
   const [productName, setProductName] = useState<string>("");
   const [productPrice, setProductPrice] = useState<string>("");

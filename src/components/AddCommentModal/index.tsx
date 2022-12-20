@@ -7,7 +7,7 @@ import { FormButton } from '../FormButton/index';
 import { Dispatch, SetStateAction } from 'react';
 import { handleScroll } from "../../utils/handleScroll";
 import { IoIosCloseCircle } from "react-icons/io";
-import { useAddComment } from '../../hooks/useAddComment';
+import { addCommentService } from '../../services/addCommentService';
 
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -23,7 +23,7 @@ interface Props {
 
 export const AddCommentModal = ({ showModalState, productId }: Props) => {
 
-  const { addComment, loading, error } = useAddComment();
+  const { addComment, loading, error } = addCommentService();
 
   const [commentTitle, setCommentTitle] = useState<string>("");
   const [comment, setComment] = useState<string>("");

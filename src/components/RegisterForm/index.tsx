@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, FormEvent } from "react";
-import { useRegister } from "../../hooks/useRegister";
+import { userAuthService } from "../../services/userAuthService";
 import { ErrorMessage } from "../ErrorMessage/";
 import { IFormData } from '../../interfaces/FormData';
 import { Input } from "../Input";
@@ -11,13 +11,14 @@ import { Label } from "../Label";
 
 export const RegisterForm = () => {
 
-  const { registerUser, loading, error } = useRegister();
+  const { registerUser, loading, error } = userAuthService();
 
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
 
+  
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 

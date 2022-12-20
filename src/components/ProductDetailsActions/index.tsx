@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { AiOutlineHeart } from "react-icons/ai";
 import { HiOutlineShoppingCart } from "react-icons/hi";
-import { useFavoriteProduct } from "../../hooks/useFavoriteProduct";
-import { useCartProduct } from '../../hooks/useCartProduct';
+import { favoriteProductService } from "../../services/favoriteProductService";
+import { cartProductService } from '../../services/cartProductService';
 import { IProductsData } from '../../interfaces/Products';
 import { useAuthContext } from '../../hooks/useAuthContext';
 import { useNavigate } from 'react-router-dom';
@@ -28,8 +28,8 @@ export const ProductDetailsActions = ({ userID, productID, favoriteProducts, pro
   const { token } = useAuthContext();
   const navigate = useNavigate();
 
-  const { favoriteProduct, removeFavoriteProduct } = useFavoriteProduct();
-  const { addProductOnCart, removeProductFromCart } = useCartProduct();
+  const { favoriteProduct, removeFavoriteProduct } = favoriteProductService();
+  const { addProductOnCart, removeProductFromCart } = cartProductService();
 
   const [isProductAlreadyFavorited, setIsProductAlreadyFavorited] = useState<boolean>(false);
   const [isProductAlreadyOnCart, setIsProductAlreadyOnCart] = useState<boolean>(false);
