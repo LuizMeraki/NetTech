@@ -5,10 +5,15 @@ export type ProductType = {
   productCategory?: string;
   productImageUrl?: string;
   productDescription?: string;
-  posts?: string[];
+  posts?: CommentsType[];
 }
 
-export type DataType = {
+type CommentsType = {
+  title: string;
+  content: string;
+}
+
+type DataType = {
   categoryName: string;
   products: ProductType[];
 }
