@@ -13,8 +13,12 @@ export type DataType = {
   products: ProductType[];
 }
 
-export type ProductsDataType = {
+export type ProductsWithCategoryType = {
   data: DataType[];
+}
+
+export type ProductsDataType = {
+  data: ProductType[];
 }
 
 export type ProductDataType = {
