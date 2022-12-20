@@ -3,7 +3,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { favoriteProductService } from "../../services/favoriteProductService";
 import { cartProductService } from '../../services/cartProductService';
-import { IProductsData } from '../../interfaces/Products';
+import { productsDataType } from '../../interfaces/Products';
 import { useAuthContext } from '../../hooks/useAuthContext';
 import { useNavigate } from 'react-router-dom';
 import styles from "./style.module.css";
@@ -12,8 +12,8 @@ import styles from "./style.module.css";
 interface Props {
   userID: string;
   productID: string | undefined;
-  favoriteProducts: IProductsData | null;
-  productsOnCart: IProductsData | null;
+  favoriteProducts: productsDataType | null;
+  productsOnCart: productsDataType | null;
 }
 
 const productFavorited = `${styles.productFavorited}`;
@@ -65,18 +65,22 @@ export const ProductDetailsActions = ({ userID, productID, favoriteProducts, pro
 
   useEffect(() => {
 
-    favoriteProducts?.data.forEach((product) => {
-      product.productId?.toString() === productID &&
-        setIsProductAlreadyFavorited(true);
+    favoriteProducts?.data.forEach((item) => {
+      item.products.forEach((product) => {
+        product.productId?.toString() === productID &&
+          setIsProductAlreadyFavorited(true);
+      })
     });
 
   }, [favoriteProducts]);
 
   useEffect(() => {
 
-    productsOnCart?.data.forEach((product) => {
-      product.productId?.toString() === productID &&
-        setIsProductAlreadyOnCart(true);
+    productsOnCart?.data.forEach((item) => {
+      item.products.forEach((product) => {
+        product.productId?.toString() === productID &&
+          setIsProductAlreadyOnCart(true);
+      })
     })
 
   }, [productsOnCart]);
