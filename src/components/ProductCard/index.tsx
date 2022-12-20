@@ -1,10 +1,10 @@
-import { productDataType } from "../../interfaces/Products";
+import { productType } from "../../interfaces/Products";
 import { useNavigate } from "react-router-dom";
 import { moneyFormatter } from "../../utils/moneyFormatter";
 import styles from "./style.module.css";
 
 
-export const ProductCard = ({ productId, productImageUrl, productName, productPrice }: productDataType) => {
+export const ProductCard = ({ productId, productImageUrl, productName, productPrice }: productType) => {
 
   const navigate = useNavigate();
 
