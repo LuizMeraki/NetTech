@@ -37,17 +37,21 @@ export const Home = () => {
         ) : (
           <>
             {products?.data.map((item, index) => (
-              <section key={index} className="products-container">
+              <section key={index} className={styles.productsContainer}>
                 <PageTitle title={item.categoryName} />
-                {item.products.map((product) => (
-                  <ProductCard
-                    key={product.productId}
-                    productId={product.productId}
-                    productName={product.productName}
-                    productImageUrl={product.productImageUrl}
-                    productPrice={product.productPrice}
-                  />
-                ))}
+                <ul>
+                  {item.products.map((product) => (
+                    <li>
+                      <ProductCard
+                        key={product.productId}
+                        productId={product.productId}
+                        productName={product.productName}
+                        productImageUrl={product.productImageUrl}
+                        productPrice={product.productPrice}
+                      />
+                    </li>
+                  ))}
+                </ul>
               </section>
             ))}
           </>
