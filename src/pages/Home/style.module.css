@@ -1,0 +1,9 @@
+.productsContainer {
+  margin-bottom: 3.5em;
+}
+
+.productsContainer ul {
+  width: 100%;
+  overflow-x: auto;
+  display: flex;
+}
