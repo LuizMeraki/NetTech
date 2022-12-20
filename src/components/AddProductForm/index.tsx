@@ -1,12 +1,15 @@
 import { FormEvent, useState } from "react";
+import { Link } from "react-router-dom";
+
+import { Label } from "../Label";
 import { Input } from "../Input";
-import { ProductType } from '../../interfaces/Products';
-import { addProductService } from '../../services/addProductService';
 import { LoadingScreen } from "../LoadingScreen";
 import { ErrorMessage } from "../ErrorMessage";
 import { FormButton } from "../FormButton";
-import { Link } from "react-router-dom";
-import { Label } from "../Label";
+
+import { ProductType } from '../../interfaces/Products';
+import { addProductService } from '../../services/addProductService';
+
 import styles from "./style.module.css";
 
 
@@ -19,6 +22,7 @@ export const AddProductForm = () => {
   const [productCategory, setProductCategory] = useState<string>("");
   const [productImageUrl, setProductImageUrl] = useState<string>("");
   const [productDescription, setProductDescription] = useState<string>("");
+
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -36,6 +40,7 @@ export const AddProductForm = () => {
     if (!error) {
       setProductName("");
       setProductPrice("");
+      setProductCategory("");
       setProductImageUrl("");
       setProductDescription("");
     }
@@ -97,10 +102,10 @@ export const AddProductForm = () => {
         />
       </Label>
       <div className="form-actions">
+        {error && <ErrorMessage message={error} />}
         <Link to="/">Go home</Link>
         <FormButton>Add product</FormButton>
       </div>
-      {error && <ErrorMessage message={error} />}
     </form>
   );
 }
