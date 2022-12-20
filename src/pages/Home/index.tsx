@@ -1,4 +1,4 @@
-import { useFetchProducts } from '../../hooks/useFetchProducts';
+import { fetchProductsService } from '../../services/fetchProductsService';
 import { PageTitle } from '../../components/PageTitle/index';
 import { ProductCard } from '../../components/ProductCard';
 import { Loading } from '../../components/Loding';
@@ -8,11 +8,12 @@ import styles from "./style.module.css";
 
 export const Home = () => {
 
-  const { products, loading, error } = useFetchProducts();
+  const { products, loading, error } = fetchProductsService();
+
 
   if (loading) {
     return (
-      <main className="container-padding">
+      <main>
         <Loading />
       </main>
     )
@@ -21,32 +22,37 @@ export const Home = () => {
 
   return (
     <main className="container-padding">
-      <div className="max-width">
-        <PageTitle title="Home" />
+      <section className="max-width">
         {error &&
           <ErrorMessage
-            className={`text-center`}
+            className="text-center"
             message={error}
           />
         }
-        {products?.data.length == 0 &&
+        {products?.data.length === 0 ? (
           <ErrorMessage
             className="text-center"
             message="There are no products available now, please, come back later."
           />
-        }
-        <div className="products-container">
-          {products?.data.map((product) => (
-            <ProductCard
-              key={product.productId}
-              productId={product.productId}
-              productName={product.productName}
-              productImageUrl={product.productImageUrl}
-              productPrice={product.productPrice}
-            />
-          ))}
-        </div>
-      </div>
+        ) : (
+          <>
+            {products?.data.map((item, index) => (
+              <section key={index} className="products-container">
+                <PageTitle title={item.categoryName} />
+                {item.products.map((product) => (
+                  <ProductCard
+                    key={product.productId}
+                    productId={product.productId}
+                    productName={product.productName}
+                    productImageUrl={product.productImageUrl}
+                    productPrice={product.productPrice}
+                  />
+                ))}
+              </section>
+            ))}
+          </>
+        )}
+      </section>
     </main>
   );
 }
