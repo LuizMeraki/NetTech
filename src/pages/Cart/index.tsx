@@ -57,7 +57,7 @@ export const Cart = () => {
 
   return (
     <main className={`${styles.main} container-padding`}>
-      <div className="max-width">
+      <section className="max-width">
         <PageTitle title="Cart" />
         <div className={styles.productsContainer}>
           {productsOnCart?.data.length == 0 &&
@@ -77,7 +77,7 @@ export const Cart = () => {
           ))}
         </div>
         <TotalPriceBar totalPrice={totalPrice} />
-      </div>
+      </section>
     </main>
   );
 }
