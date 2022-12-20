@@ -1,6 +1,6 @@
 import { FormEvent, useState } from "react";
 import { Input } from "../Input";
-import { productDataType } from '../../interfaces/Products';
+import { productType } from '../../interfaces/Products';
 import { addProductService } from '../../services/addProductService';
 import { LoadingScreen } from "../LoadingScreen";
 import { ErrorMessage } from "../ErrorMessage";
@@ -20,10 +20,10 @@ export const AddProductForm = () => {
   const [productImageUrl, setProductImageUrl] = useState<string>("");
   const [productDescription, setProductDescription] = useState<string>("");
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    const data: productDataType = {
+    const data: productType = {
       productName,
       productPrice: parseFloat(productPrice),
       productCategory,
@@ -31,7 +31,7 @@ export const AddProductForm = () => {
       productDescription,
     }
 
-    addProduct(data);
+    await addProduct(data);
 
     if (!error) {
       setProductName("");
@@ -70,12 +70,12 @@ export const AddProductForm = () => {
           required
         >
           <option value="">Please choose a category</option>
-          <option value="laptop">laptop</option>
-          <option value="keyboard">keyboard</option>
-          <option value="mouse">mouse</option>
-          <option value="microphone">microphone</option>
-          <option value="screen">screen</option>
-          <option value="headphones">headphones</option>
+          <option value="laptop">Laptop</option>
+          <option value="screen">Screen</option>
+          <option value="keyboard">Keyboard</option>
+          <option value="mouse">Mouse</option>
+          <option value="microphone">Microphone</option>
+          <option value="headphones">Headphones</option>
         </select>
       </Label>
       <Label label="Product image URL">
