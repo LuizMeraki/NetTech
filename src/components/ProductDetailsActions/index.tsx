@@ -3,7 +3,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { favoriteProductService } from "../../services/favoriteProductService";
 import { cartProductService } from '../../services/cartProductService';
-import { productsDataType } from '../../interfaces/Products';
+import { ProductsDataType } from '../../interfaces/Products';
 import { useAuthContext } from '../../hooks/useAuthContext';
 import { useNavigate } from 'react-router-dom';
 import styles from "./style.module.css";
@@ -12,8 +12,8 @@ import styles from "./style.module.css";
 interface Props {
   userID: string;
   productID: string | undefined;
-  favoriteProducts: productsDataType | null;
-  productsOnCart: productsDataType | null;
+  favoriteProducts: ProductsDataType | null;
+  productsOnCart: ProductsDataType | null;
 }
 
 const productFavorited = `${styles.productFavorited}`;

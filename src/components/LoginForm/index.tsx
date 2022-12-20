@@ -1,6 +1,6 @@
 import { useState, FormEvent } from 'react';
 import { Link } from 'react-router-dom';
-import { IFormData } from '../../interfaces/FormData';
+import { FormDataType } from '../../interfaces/FormData';
 import { ErrorMessage } from '../ErrorMessage';
 import { FormButton } from '../FormButton';
 import { Input } from '../Input';
@@ -19,7 +19,7 @@ export const LoginForm = () => {
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    const data: IFormData = {
+    const data: FormDataType = {
       email,
       password,
     }

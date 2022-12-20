@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState, FormEvent } from "react";
 import { userAuthService } from "../../services/userAuthService";
 import { ErrorMessage } from "../ErrorMessage/";
-import { IFormData } from '../../interfaces/FormData';
+import { FormDataType } from '../../interfaces/FormData';
 import { Input } from "../Input";
 import { FormButton } from "../FormButton";
 import { LoadingScreen } from "../LoadingScreen";
@@ -22,7 +22,7 @@ export const RegisterForm = () => {
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    const data: IFormData = {
+    const data: FormDataType = {
       username,
       email,
       password,

@@ -1,11 +1,11 @@
 import { AiOutlineEye } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
-import { productType } from '../../interfaces/Products';
+import { ProductType } from '../../interfaces/Products';
 import { moneyFormatter } from "../../utils/moneyFormatter";
 import styles from "./style.module.css";
 
 
-export const MiniProductCard = ({ productImageUrl, productName, productPrice, productId }: productType) => {
+export const MiniProductCard = ({ productImageUrl, productName, productPrice, productId }: ProductType) => {
 
   const navigate = useNavigate();
 
