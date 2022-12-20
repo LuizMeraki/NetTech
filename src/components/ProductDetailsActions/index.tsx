@@ -65,22 +65,18 @@ export const ProductDetailsActions = ({ userID, productID, favoriteProducts, pro
 
   useEffect(() => {
 
-    favoriteProducts?.data.forEach((item) => {
-      item.products.forEach((product) => {
-        product.productId?.toString() === productID &&
-          setIsProductAlreadyFavorited(true);
-      })
+    favoriteProducts?.data.forEach((product) => {
+      product.productId?.toString() === productID &&
+        setIsProductAlreadyFavorited(true);
     });
 
   }, [favoriteProducts]);
 
   useEffect(() => {
 
-    productsOnCart?.data.forEach((item) => {
-      item.products.forEach((product) => {
-        product.productId?.toString() === productID &&
-          setIsProductAlreadyOnCart(true);
-      })
+    productsOnCart?.data.forEach((product) => {
+      product.productId?.toString() === productID &&
+        setIsProductAlreadyOnCart(true);
     })
 
   }, [productsOnCart]);
