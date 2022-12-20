@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from "react-router-dom";
 import { Loading } from "../../components/Loding";
 import { ProductDetailsActions } from "../../components/ProductDetailsActions";
-import { useFetchProductDetails } from "../../hooks/useFetchProductDetails";
+import { fetchProductDetailsService } from "../../services/fetchProductDetailsService";
 import { moneyFormatter } from "../../utils/moneyFormatter";
 import { AddCommentModal } from '../../components/AddCommentModal';
 import { FormButton } from '../../components/FormButton/index';
@@ -24,7 +24,7 @@ export const ProductDetails = () => {
     favoriteProducts,
     productsOnCart,
     loading,
-    error } = useFetchProductDetails();
+    error } = fetchProductDetailsService();
 
   const [showCommentModal, setShowCommentModal] = useState<boolean>(false);
 
@@ -58,7 +58,7 @@ export const ProductDetails = () => {
     <main className="container-padding">
       {showCommentModal && <AddCommentModal showModalState={setShowCommentModal} productId={productId} />}
       <ToastContainer hideProgressBar={true} />
-      <div className={`${styles.container} max-width`}>
+      <section className={`${styles.container} max-width`}>
         <ProductDetailsActions
           userID="1"
           productID={productId}
@@ -89,7 +89,7 @@ export const ProductDetails = () => {
           </div>
           <FormButton onClick={handleAddComment}>Add a comment</FormButton>
         </section>
-      </div>
+      </section>
     </main>
   );
 }
