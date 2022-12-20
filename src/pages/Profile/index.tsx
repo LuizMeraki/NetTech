@@ -1,17 +1,24 @@
 import { useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import { fetchUserData } from '../../services/fetchUserData';
+import { userAuthService } from '../../services/userAuthService';
+import { fetchUserDataService } from '../../services/fetchUserDataService';
 import { PageTitle } from "../../components/PageTitle";
 import { ProfileActions } from "../../components/ProfileActions";
-import { Loading } from '../../components/Loding';
-import { AiOutlineHeart, AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai";
 import { ErrorMessage } from '../../components/ErrorMessage';
+import { Loading } from '../../components/Loding';
 import styles from "./style.module.css";
+import {
+  AiOutlineHeart,
+  AiOutlinePoweroff,
+  AiOutlineShoppingCart,
+  AiOutlineUser
+} from "react-icons/ai";
 
 
 export const Profile = () => {
 
-  const { getUserData, userData, loading, error } = fetchUserData();
+  const { getUserData, userData, loading, error } = fetchUserDataService();
+  const { logoutUser } = userAuthService();
 
   const navigate = useNavigate();
 
@@ -34,7 +41,7 @@ export const Profile = () => {
 
   return (
     <main className="container-padding">
-      <div className="max-width">
+      <section className="max-width">
         <PageTitle title="Profile" />
         {error ?
           <ErrorMessage message={error} className="text-center" />
@@ -54,16 +61,22 @@ export const Profile = () => {
             action={() => navigate("/cart")}
             actionName="Cart"
           />
-          {userData?.data.authorities.map((item) => (
+          {userData?.data.authorities.map((item, index) => (
             item.authority === "ROLE_ADMIN" &&
             <ProfileActions
+              key={index}
               icon={<AiOutlineUser />}
               action={() => navigate("/add-product")}
               actionName="Add product"
             />
           ))}
+          <ProfileActions
+            icon={<AiOutlinePoweroff />}
+            action={() => logoutUser()}
+            actionName="Logout"
+          />
         </div>
-      </div>
+      </section>
     </main>
   );
 }
