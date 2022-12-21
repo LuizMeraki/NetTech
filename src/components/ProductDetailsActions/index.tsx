@@ -10,7 +10,6 @@ import styles from "./style.module.css";
 
 
 interface Props {
-  userID: string;
   productID: string | undefined;
   favoriteProducts: ProductsDataType | null;
   productsOnCart: ProductsDataType | null;
@@ -23,7 +22,7 @@ const productOnCart = `${styles.productOnCart}`;
 const productNotOnCart = `${styles.productNotOnCart}`;
 
 
-export const ProductDetailsActions = ({ userID, productID, favoriteProducts, productsOnCart }: Props) => {
+export const ProductDetailsActions = ({ productID, favoriteProducts, productsOnCart }: Props) => {
 
   const { token } = useAuthContext();
   const navigate = useNavigate();
@@ -40,9 +39,9 @@ export const ProductDetailsActions = ({ userID, productID, favoriteProducts, pro
     if (!token) { navigate("/login"); return };
 
     if (isProductAlreadyFavorited) {
-      removeFavoriteProduct(userID, productID);
+      removeFavoriteProduct(productID);
     } else {
-      favoriteProduct(userID, productID);
+      favoriteProduct(productID);
     }
 
     setIsProductAlreadyFavorited((prevState) => !prevState);
@@ -54,9 +53,9 @@ export const ProductDetailsActions = ({ userID, productID, favoriteProducts, pro
     if (!token) { navigate("/login"); return };
 
     if (isProductAlreadyOnCart) {
-      removeProductFromCart("1", productID);
+      removeProductFromCart(productID);
     } else {
-      addProductOnCart("1", productID);
+      addProductOnCart(productID);
     }
 
     setIsProductAlreadyOnCart((prevState) => !prevState);

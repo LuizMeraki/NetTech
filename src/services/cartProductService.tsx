@@ -2,19 +2,21 @@ import { useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { ProductsDataType } from "../interfaces/Products";
 import { requestErrorMessages } from "../constants/requestErrorMessages";
+import { getLocalStorageItem } from './../utils/localStorageActions';
 import { api } from "./api";
 
 
 export const cartProductService = () => {
 
-  const { token } = useAuthContext();
+  const userID = getLocalStorageItem("id");
 
+  const { token } = useAuthContext();
   const [productsOnCart, setProductsOnCart] = useState<ProductsDataType | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
 
-  function addProductOnCart(userID: string, productID: string | undefined) {
+  function addProductOnCart(productID: string | undefined) {
 
     try {
 
@@ -28,7 +30,7 @@ export const cartProductService = () => {
   }
 
 
-  function removeProductFromCart(userID: string, productID: string | undefined) {
+  function removeProductFromCart(productID: string | undefined) {
 
     try {
 
@@ -43,7 +45,7 @@ export const cartProductService = () => {
   }
 
 
-  async function fetchProductsOnCart(userID: string) {
+  async function fetchProductsOnCart() {
 
     setLoading(true);
     setError(null);

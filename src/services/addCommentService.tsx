@@ -1,17 +1,20 @@
 import { useState } from 'react';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { requestErrorMessages } from '../constants/requestErrorMessages';
+import { getLocalStorageItem } from '../utils/localStorageActions';
 import { api } from './api';
 
 
 export const addCommentService = () => {
 
-  const { token } = useAuthContext();
+  const userID = getLocalStorageItem("id");
 
+  const { token } = useAuthContext();
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  async function addComment(data: object, userID: string, productID: string | undefined) {
+
+  async function addComment(data: object, productID: string | undefined) {
 
     setLoading(true);
     setError(null);

@@ -16,7 +16,7 @@ export const fetchUserDataService = () => {
   const [error, setError] = useState<string | null>(null);
 
 
-  async function getUserData(userIDs: string) {
+  async function getUserData() {
 
     setLoading(true);
     setError(null);

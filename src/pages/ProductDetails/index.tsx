@@ -60,7 +60,6 @@ export const ProductDetails = () => {
       <ToastContainer hideProgressBar={true} />
       <section className={`${styles.container} max-width`}>
         <ProductDetailsActions
-          userID="1"
           productID={productId}
           favoriteProducts={favoriteProducts}
           productsOnCart={productsOnCart}
