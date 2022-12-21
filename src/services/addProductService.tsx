@@ -12,6 +12,7 @@ export const addProductService = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
+  
   async function addProduct(data: ProductType) {
 
     setLoading(true);
@@ -21,7 +22,6 @@ export const addProductService = () => {
 
       await api.post(`product/createproduct`, data, {
         headers: {
-          "Access-Control-Allow-Origin": "*",
           "Authorization": token
         }
       });
