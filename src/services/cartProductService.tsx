@@ -45,6 +45,20 @@ export const cartProductService = () => {
   }
 
 
+  function removeAllProductsFromCart() {
+
+    try {
+
+      api.delete(`user/deleteallproductfromcartlist?userId=${userID}`, {
+        headers: {
+          "Authorization": token,
+        }
+      });
+
+    } catch (error) { }
+  }
+
+
   async function fetchProductsOnCart() {
 
     setLoading(true);
@@ -75,6 +89,7 @@ export const cartProductService = () => {
   return ({
     addProductOnCart,
     removeProductFromCart,
+    removeAllProductsFromCart,
     fetchProductsOnCart,
     productsOnCart,
     loading,
