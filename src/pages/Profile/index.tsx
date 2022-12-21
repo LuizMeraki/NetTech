@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import { userAuthService } from '../../services/userAuthService';
 import { fetchUserDataService } from '../../services/fetchUserDataService';
 import { PageTitle } from "../../components/PageTitle";
 import { ProfileActions } from "../../components/ProfileActions";
 import { ErrorMessage } from '../../components/ErrorMessage';
 import { Loading } from '../../components/Loding';
+import { LogoutModal } from '../../components/LogoutModal';
 import styles from "./style.module.css";
 import {
   AiOutlineHeart,
@@ -17,15 +17,14 @@ import {
 
 export const Profile = () => {
 
+  const [showModal, setShowModal] = useState<boolean>(false);
   const { getUserData, userData, loading, error } = fetchUserDataService();
-  const { logoutUser } = userAuthService();
-
   const navigate = useNavigate();
 
 
   useEffect(() => {
 
-    getUserData("2");
+    getUserData();
 
   }, []);
 
@@ -41,6 +40,7 @@ export const Profile = () => {
 
   return (
     <main className="container-padding">
+      {showModal && <LogoutModal setShowModal={setShowModal} />}
       <section className="max-width">
         <PageTitle title="Profile" />
         {error ?
@@ -72,7 +72,7 @@ export const Profile = () => {
           ))}
           <ProfileActions
             icon={<AiOutlinePoweroff />}
-            action={() => logoutUser()}
+            action={() => setShowModal(true)}
             actionName="Logout"
           />
         </div>
