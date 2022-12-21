@@ -1,9 +1,14 @@
+.main {
+  padding-top: 0;
+}
+
 .productsContainer {
-  margin-bottom: 3.5em;
+  margin-bottom: 3.2em;
 }
 
 .productsContainer ul {
   width: 100%;
+  padding-bottom: 25px;
   display: flex;
   overflow-x: auto;
   list-style: none;
