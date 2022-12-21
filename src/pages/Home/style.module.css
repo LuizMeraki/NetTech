@@ -4,6 +4,7 @@
 
 .productsContainer ul {
   width: 100%;
-  overflow-x: auto;
   display: flex;
+  overflow-x: auto;
+  list-style: none;
 }
