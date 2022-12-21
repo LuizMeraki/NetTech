@@ -41,9 +41,8 @@ export const Home = () => {
                 <PageTitle title={item.categoryName} />
                 <ul>
                   {item.products.map((product) => (
-                    <li>
+                    <li key={product.productId}>
                       <ProductCard
-                        key={product.productId}
                         productId={product.productId}
                         productName={product.productName}
                         productImageUrl={product.productImageUrl}
