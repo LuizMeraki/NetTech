@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { cartProductService } from '../../services/cartProductService';
 import { moneyFormatter } from "../../utils/moneyFormatter";
 import { CompletedPurchaseModal } from '../CompletedPurchaseModal';
 import styles from "./style.module.css";
@@ -11,7 +12,17 @@ interface Props {
 
 export const TotalPriceBar = ({ totalPrice }: Props) => {
 
+  const { removeAllProductsFromCart } = cartProductService();
+
   const [showModal, setShowModal] = useState<boolean>(false);
+
+
+  function handleBuyNow() {
+
+    removeAllProductsFromCart();
+    setShowModal(true)
+
+  }
 
 
   return (
@@ -27,7 +38,7 @@ export const TotalPriceBar = ({ totalPrice }: Props) => {
           </div>
           <div className={styles.redirectContainer}>
             {totalPrice ?
-              <button type="button" onClick={() => setShowModal(true)}>
+              <button type="button" onClick={handleBuyNow}>
                 Buy Now
               </button> : null
             }
@@ -36,5 +47,4 @@ export const TotalPriceBar = ({ totalPrice }: Props) => {
       </div>
     </>
   );
-
 }
