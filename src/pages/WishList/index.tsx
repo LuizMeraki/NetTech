@@ -14,7 +14,7 @@ export const WishList = () => {
 
   useEffect(() => {
 
-    fetchFavoriteProducts("1");
+    fetchFavoriteProducts();
 
   }, []);
 

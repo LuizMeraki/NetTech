@@ -31,8 +31,8 @@ export const fetchProductDetailsService = () => {
 
       if (token) {
 
-        await fetchFavoriteProducts("1");
-        await fetchProductsOnCart("1");
+        await fetchFavoriteProducts();
+        await fetchProductsOnCart();
       }
 
       setProductDetails(request);

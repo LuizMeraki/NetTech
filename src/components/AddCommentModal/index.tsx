@@ -36,7 +36,7 @@ export const AddCommentModal = ({ showModalState, productId }: Props) => {
       content: comment,
     }
 
-    addComment(data, "1", productId);
+    addComment(data, productId);
 
     if (!error) {
       toast("Your comment has been added");
