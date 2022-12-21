@@ -34,7 +34,7 @@ export const Cart = () => {
 
   useEffect(() => {
 
-    fetchProductsOnCart("1");
+    fetchProductsOnCart();
 
   }, []);
 
