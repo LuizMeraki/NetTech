@@ -3,6 +3,7 @@ import { PageTitle } from '../../components/PageTitle/index';
 import { ProductCard } from '../../components/ProductCard';
 import { Loading } from '../../components/Loding';
 import { ErrorMessage } from '../../components/ErrorMessage';
+import { BannerCarousel } from '../../components/BannerCarousel';
 import styles from "./style.module.css";
 
 
@@ -19,10 +20,11 @@ export const Home = () => {
     )
   }
 
-
+  
   return (
-    <main className="container-padding">
+    <main className={`${styles.main} container-padding`}>
       <section className="max-width">
+      <BannerCarousel />
         {error &&
           <ErrorMessage
             className="text-center"
