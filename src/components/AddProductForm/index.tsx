@@ -40,7 +40,6 @@ export const AddProductForm = () => {
     if (!error) {
       setProductName("");
       setProductPrice("");
-      setProductCategory("");
       setProductImageUrl("");
       setProductDescription("");
     }
@@ -75,12 +74,12 @@ export const AddProductForm = () => {
           required
         >
           <option value="">Please choose a category</option>
-          <option value="laptop">Laptop</option>
-          <option value="screen">Screen</option>
-          <option value="keyboard">Keyboard</option>
-          <option value="mouse">Mouse</option>
-          <option value="microphone">Microphone</option>
-          <option value="headphones">Headphones</option>
+          <option value="Laptops">Laptop</option>
+          <option value="Screens">Screen</option>
+          <option value="Keyboards">Keyboard</option>
+          <option value="Mouses">Mouse</option>
+          <option value="Microphones">Microphone</option>
+          <option value="Headphones">Headphone</option>
         </select>
       </Label>
       <Label label="Product image URL">
@@ -99,6 +98,7 @@ export const AddProductForm = () => {
           setState={setProductDescription}
           placeholder="Describe about your product"
           required={true}
+          maxLength={240}
         />
       </Label>
       <div className="form-actions">
