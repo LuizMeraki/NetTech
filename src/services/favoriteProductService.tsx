@@ -2,19 +2,21 @@ import { useState } from 'react';
 import { useAuthContext } from "../hooks/useAuthContext";
 import { ProductsDataType } from '../interfaces/Products';
 import { requestErrorMessages } from "../constants/requestErrorMessages";
+import { getLocalStorageItem } from '../utils/localStorageActions';
 import { api } from './api';
 
 
 export const favoriteProductService = () => {
 
+  const userID = getLocalStorageItem("id");
+  
   const { token } = useAuthContext();
-
   const [favoriteProducts, setFavoriteProducts] = useState<ProductsDataType | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
 
-  function favoriteProduct(userID: string, productID: string | undefined) {
+  function favoriteProduct(productID: string | undefined) {
 
     try {
 
@@ -28,7 +30,7 @@ export const favoriteProductService = () => {
   }
 
 
-  function removeFavoriteProduct(userID: string, productID: string | undefined) {
+  function removeFavoriteProduct(productID: string | undefined) {
 
     try {
 
@@ -42,7 +44,7 @@ export const favoriteProductService = () => {
   }
 
 
-  async function fetchFavoriteProducts(userID: string) {
+  async function fetchFavoriteProducts() {
 
     setLoading(true);
     setError(null);

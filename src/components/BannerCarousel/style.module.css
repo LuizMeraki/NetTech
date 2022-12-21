@@ -1,0 +1,10 @@
+.section {
+  max-width: 820px;
+  margin: 0 auto 90px;
+}
+
+.section img {
+  width: 100%;
+  height: clamp(150px, 40vw, 330px);
+  border-radius: 0 0 15px 15px;
+} 

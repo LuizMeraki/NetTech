@@ -3,6 +3,7 @@ import { PageTitle } from '../../components/PageTitle/index';
 import { ProductCard } from '../../components/ProductCard';
 import { Loading } from '../../components/Loding';
 import { ErrorMessage } from '../../components/ErrorMessage';
+import { BannerCarousel } from '../../components/BannerCarousel';
 import styles from "./style.module.css";
 
 
@@ -19,10 +20,11 @@ export const Home = () => {
     )
   }
 
-
+  
   return (
-    <main className="container-padding">
+    <main className={`${styles.main} container-padding`}>
       <section className="max-width">
+      <BannerCarousel />
         {error &&
           <ErrorMessage
             className="text-center"
@@ -37,17 +39,20 @@ export const Home = () => {
         ) : (
           <>
             {products?.data.map((item, index) => (
-              <section key={index} className="products-container">
+              <section key={index} className={styles.productsContainer}>
                 <PageTitle title={item.categoryName} />
-                {item.products.map((product) => (
-                  <ProductCard
-                    key={product.productId}
-                    productId={product.productId}
-                    productName={product.productName}
-                    productImageUrl={product.productImageUrl}
-                    productPrice={product.productPrice}
-                  />
-                ))}
+                <ul>
+                  {item.products.map((product) => (
+                    <li key={product.productId}>
+                      <ProductCard
+                        productId={product.productId}
+                        productName={product.productName}
+                        productImageUrl={product.productImageUrl}
+                        productPrice={product.productPrice}
+                      />
+                    </li>
+                  ))}
+                </ul>
               </section>
             ))}
           </>
