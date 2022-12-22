@@ -1,6 +1,9 @@
 <h1 align="center">NetTech</h1>
 
 
+<img src="https://user-images.githubusercontent.com/75648386/209199019-8157077b-765c-4c9c-b8ae-0cd4680c343c.gif"/>
+
+
 <br>
 
 
@@ -8,15 +11,6 @@
   <a href="#about">About</a> -
   <a href="#stacks">Stacks</a> -
   <a href="#decisionsStacks">Decisions stacks</a>
-</div>
-
-
-<br>
-<br>
-
-
-<div align="center">
-  <em align="center">🚧 Still in development 🚧</em>
 </div>
 
 
@@ -34,7 +28,7 @@ wishlist or if you want to buy that, you can add the product in your cart list, 
 
 <ul>
 
-  #### Front-end - @LuizMeraki
+  #### Front-end: @LuizMeraki
 
   <li>React</li>
   <li>React Router DOM</li>
@@ -42,7 +36,7 @@ wishlist or if you want to buy that, you can add the product in your cart list, 
   <li>CSS Modules</li>
   <li>Axios</li>
   
-  #### Back-end - @luiz7727
+  #### Back-end: @luiz7727
   
   <li>Java</li>
   <li>Spring Boot</li>
@@ -53,10 +47,13 @@ wishlist or if you want to buy that, you can add the product in your cart list, 
 
 <h2 id="decisionsStacks">Decisions stacks</h2>
 
+#### Front-end: @LuizMeraki
+
 On frontend side I used ReactJs with typescript because which react we can create components, 
 wich makes us save a lof of time and typescript check the types in development environment, 
-so i help us a lot in which type of data we have to pass to some function. 
+so it helps us a lot in which type of data we have to pass to some function for example. 
+
+#### Back-end: @luiz7727
+
 Now, on backend side my friend decided to use java because he already had create API with Spring Boot
 and now he learned more about security with Spring.
-
-
