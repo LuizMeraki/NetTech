@@ -46,15 +46,19 @@ export const Search = () => {
           />
         }
         <div className="products-container">
-          {products?.data.map((product) => (
-            <ProductCard
-              key={product.productId}
-              productId={product.productId}
-              productImageUrl={product.productImageUrl}
-              productName={product.productName}
-              productPrice={product.productPrice}
-            />
-          ))}
+          <ul className={styles.productsList}>
+            {products?.data.map((product) => (
+              <li key={product.productId}>
+                <ProductCard
+                  key={product.productId}
+                  productId={product.productId}
+                  productImageUrl={product.productImageUrl}
+                  productName={product.productName}
+                  productPrice={product.productPrice}
+                />
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </main>

@@ -21,9 +21,10 @@
 }
 
 .price {
-  font-size: 1.1em;
+  color: var(--main-blue);
+  font-size: 1.3em;
+  font-weight: 400;
   margin: 1.2em 0 2em;
-  font-weight: 500;
 }
 
 .productImageContainer {
