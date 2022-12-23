@@ -68,3 +68,5 @@ and now he learned more about security with Spring.
 
 | [<img src="https://avatars.githubusercontent.com/u/75648386?v=4" width=115><br><sub>Luiz Meraki</sub>](https://github.com/LuizMeraki) |  [<img src="https://avatars.githubusercontent.com/u/64756772?v=4" width=115><br><sub>Luiz Antônio</sub>](https://github.com/luiz7727) |   
 | :---: | :---: |
+
+Leave a star if you like it! ⭐
