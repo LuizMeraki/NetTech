@@ -10,7 +10,8 @@
 <div align="center">
   <a href="#about">About</a> -
   <a href="#stacks">Stacks</a> -
-  <a href="#decisionsStacks">Decisions stacks</a>
+  <a href="#decisionsStacks">Decisions stacks</a> - 
+  <a href="#contributors">Contributors</a>
 </div>
 
 
@@ -49,11 +50,17 @@ wishlist or if you want to buy that, you can add the product in your cart list, 
 
 #### Front-end: @LuizMeraki
 
-On frontend side I used ReactJs with typescript because which react we can create components, 
-wich makes us save a lof of time and typescript check the types in development environment, 
-so it helps us a lot in which type of data we have to pass to some function for example. 
+On the Front-end side I used ReactJs and TypeScript because with React I can create components, 
+wich makes us save a lof of time and TypeScript check the types in development environment so,
+it helps us a lot in which type of data we have to pass to some function for example. 
 
 #### Back-end: @luiz7727
 
-Now, on backend side my friend decided to use java because he already had create API with Spring Boot
+Now, on Back-end side my friend decided to use java because he already had create API with Spring Boot
 and now he learned more about security with Spring.
+
+
+<h2 id="contributors">Contributors</h2>
+
+| [<img src="https://avatars.githubusercontent.com/u/75648386?v=4" width=115><br><sub>Luiz Meraki</sub>](https://github.com/LuizMeraki) |  [<img src="https://avatars.githubusercontent.com/u/64756772?v=4" width=115><br><sub>Luiz Antônio</sub>](https://github.com/luiz7727) |   
+| :---: | :---: |
