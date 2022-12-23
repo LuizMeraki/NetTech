@@ -1,4 +1,4 @@
-<h1 align="center">NetTech</h1>
+<h1 align="center">NetTech 🛒</h1>
 
 
 <img src="https://user-images.githubusercontent.com/75648386/209199019-8157077b-765c-4c9c-b8ae-0cd4680c343c.gif"/>
@@ -50,9 +50,12 @@ wishlist or if you want to buy that, you can add the product in your cart list, 
 
 #### Front-end: @LuizMeraki
 
-On the Front-end side I used ReactJs and TypeScript because with React I can create components, 
+On the Front-end side, first of all, I used these technologies because they are part of my Front-end stack, 
+but I used ReactJs and TypeScript because with React I can create components, 
 wich makes us save a lof of time and TypeScript check the types in development environment so,
-it helps us a lot in which type of data we have to pass to some function for example. 
+it helps us a lot in which type of data we have to pass to some function and prevent lot of possible errors. 
+
+I learned a lot developing this app!
 
 #### Back-end: @luiz7727
 
