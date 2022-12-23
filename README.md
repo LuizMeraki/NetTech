@@ -55,7 +55,8 @@ but I used ReactJs and TypeScript because with React I can create components,
 wich makes us save a lof of time and TypeScript check the types in development environment so,
 it helps us a lot in which type of data we have to pass to some function and prevent lot of possible errors. 
 
-I learned a lot developing this app!
+Developing this app I learned more about authorization using token, more about React syntax, I improved my
+code writting and problem solutions.
 
 #### Back-end: @luiz7727
 
